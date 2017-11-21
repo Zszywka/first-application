@@ -44,16 +44,18 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href=" "> Create Your List of Stories</a>
+            <a class="nav-link disabled" href=""> Create Your List of Stories</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="/stories/new"> Create New story</a>
+            <a class="nav-link disabled" href=""> Create New story</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+          <%= form_tag stories_path, method: "get", class: "form-inline my-2 my-lg-0" do %>
+            <%= hidden_field_tag "order", @order %>
+            <%= hidden_field_tag "dir", @dir %>
+            <%= text_field_tag "text", @text, class: "form-control mr-sm-2", placeholder: "Search" %>
+            <%= submit_tag "search", class: "btn btn-outline-success my-2 my-sm-0" %>
+          <% end %>
       </div>
     </nav>
 

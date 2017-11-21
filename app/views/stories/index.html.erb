@@ -1,6 +1,43 @@
-<%= link_to "Home", welcome_path %> |
+<nav class="navbar navbar-expand-md navbar bg-light">
+  <a class="navbar-brand" href="/welcome"><strong> Home </strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-<%= link_to "New story", new_story_path %>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="#">Sign in</a>
+          <a class="dropdown-item" href="#">Sign up</a>
+          <a class="dropdown-item" href="#">Sign out</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Level</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="/stories?category=1">Easy</a>
+          <a class="dropdown-item" href="/stories?category=2">Medium easy</a>
+          <a class="dropdown-item" href="/stories?category=3">Avarage</a>
+          <a class="dropdown-item" href="/stories?category=4">Dificult</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=" "> Create Your List of Stories</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/stories/new"> Create New story</a>
+      </li>
+    </ul>
+      <%= form_tag stories_path, method: "get", class: "form-inline my-2 my-lg-0" do %>
+        <%= hidden_field_tag "order", @order %>
+        <%= hidden_field_tag "dir", @dir %>
+        <%= text_field_tag "text", @text, class: "form-control mr-sm-2", placeholder: "Search" %>
+        <%= submit_tag "search", class: "btn btn-outline-success my-2 my-sm-0" %>
+      <% end %>
+  </div>
+</nav>
 
 
 <h2 class="text-center"> Category of Story</h2>
@@ -10,19 +47,9 @@
   <% end %>
 </div>
 
-<h2><strong> Fairytale Search Engine </strong></h2>
-<%= form_tag " ", method: "get" do %>
-  <%= hidden_field_tag "order", @order %>
-  <%= hidden_field_tag "dir", @dir %>
-  <%= text_field_tag("text", @text)%>
-  <%= submit_tag("search") %>
-<% end %>
-
-
-<h4> List of Stories: </h4>
 <table class="table table-sm">
   <tr class="table-success">
-    <th scope="col" class="text-center"> Cover/Picture </th>
+    <th scope="col" class="text-center"> Story </th>
     <th scope="col"><%= link_to "Title", stories_path(order: "title", dir: (@dir == "asc" ? "desc" : "asc"), text: @text) %></th>
     <th scope="col"> <%= link_to "Author", stories_path(order: "author", dir: (@dir == "asc" ? "desc" : "asc"), text: @text) %> </th>
     <th scope="col"> <%= link_to "Level", stories_path(order:"level",dir:(@dir == "asc" ? "desc" : "asc"), text: @text) %></th>
@@ -35,7 +62,7 @@
             <%= image_tag story.picture.url(:thumb)%>
           <% end %>
         </td>
-        <td><strong><%= link_to story.title.capitalize, story_path(story) %></strong></td>
+        <td><strong><%= link_to story.title.capitalize, story_path(story) %> &#xbb; </strong><input onclick='responsiveVoice.speak("<%= story.title.capitalize %>");' type='button' value='🔊 Play' /></td>
         <td><%= story.author.capitalize %></td>
         <td><%= story.level.capitalize %></td>
     </div>

@@ -6,6 +6,7 @@ class Story < ApplicationRecord
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 
   belongs_to :category
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true
   validates :author, presence: true
