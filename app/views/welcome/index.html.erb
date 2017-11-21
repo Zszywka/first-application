@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>Story</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar bg-light">
+      <a class="navbar-brand" href="/stories"><strong> List of Stories </strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Sign in</a>
+              <a class="dropdown-item" href="#">Sign up</a>
+              <a class="dropdown-item" href="#">Sign out</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Level</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="/stories?category=1">Easy</a>
+              <a class="dropdown-item" href="/stories?category=2">Medium easy</a>
+              <a class="dropdown-item" href="/stories?category=3">Avarage</a>
+              <a class="dropdown-item" href="/stories?category=4">Dificult</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href=" "> Create Your List of Stories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="/stories/new"> Create New story</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-12 col-md-9">
+          <div class="jumbotron">
+            <h3>Witaj w zbiorze bajek i opowiadań czytanych przez lektora.</h3>
+            <p> Zamysł jest prosty. Puść dziecku dowolną bajkę, baśń lub opowiadanie na dobranoc lub w innym czasie.
+              Nie zawiera ona obrazów, tylko dzwięki i słowa pobudzające wyobraźnię.
+              Wybierz dziecku poziom, gdyż bajki są na różnorodnym poziomie.
+              Masz pewność, że Twoje dziecko nie zobaczy i nie usłyszy nic nieodpowiedniego.
+              Wszystkie wpisy są skontrolowane przez administratora.
+            </p>
+            <p>
+              Jednak jeśli chcesz stworzyć swoją własną bajkotekę, to świetnie bo masz taką możliwość.
+              Możesz się zarejestrować i tworzyć własne czytane opowiadania.
+              Może to właśnie Twoje bajki najbardziej spodobają się dzieciom?
+            </p>
+              Bajki są ponadczasowe. Niektóre, oprócz podstawowego przekazu, zawierają kilka, warstw i poziomów.
+              Nawet dorosły znajdzie to coś dla siebie. Usiądz wygodnie z ulubiony napojem, odpręż się i <strong>odkryj bajkę na nowo albo wróci do czasów dzieciństwa.</strong></p>
+          </div>
+          <div class="row">
+            <div class="col-6 col-lg-6">
+              <h2>Level Easy &#9829;</h2>
+              <p> Ten poziom zawiera bajki z prostym przekazem dla najmłodszych dzieci.
+                Wprawdzie każda bajka może być analizowana wielopłaszczyznowo, ale te zostały specjalnie wybrane dla naszych najmłodszych słuchaczy.
+                Mimo rozdzielenia na poziomy, każde dziecko może bez obaw słuchać bajek z każdego poziomu.
+              </p>
+              <p><a class="btn btn-primary" href="/stories?category=1" role="button"> bajki proste &raquo;</a></p>
+            </div><!--/span-->
+            <div class="col-6 col-lg-6">
+              <h2>Level Medium Easy <%= raw "&#9829;" * 2 %> </h2>
+              <p> Ten poziom jest odrobine trudniejszy niż poziom poprzedni. Bajki tu zawarte posiadają więcej watków.
+                  Zaczarowany świat symboli i przesłań zaczyna się rozbudowywać, rozwijajac tym samym dziecięcą wyobraznię.
+                  Dziecko słuchając tych bajek poziom po pozimie, tworzy obrazy, postacie i zdarzenia w swojej głowie czasami się z nimi utożsamiając.
+                  W tym dziale zostanie poruszonych wiele problemów wieku przedszkolnego.
+              </p>
+              <p><a class="btn btn-primary" href="/stories?category=2" role="button"> bajki średnio-łatwe &raquo;</a></p>
+            </div><!--/span-->
+            <div class="col-6 col-lg-6 ">
+              <h2>Level Average <%= raw "&#9829;" * 3 %> </h2>
+              <p> Te bajki są przeznaczone dla starszych dzieci, choć i młodsze mogą ich słuchać.
+                Są bardziej rozbudowane i skomplikowane niż poprzednie działy.
+                Treść i znaczenie w nich zawarte są dziś zaskakująco żywe i pozwolą dzieciom rozwiązać nie jedną swoją rozterkę, tęsknotę czy problem.
+              </p>
+              <p><a class="btn btn-primary" href="/stories?category=3" role="button">bajki średnio-trudne &raquo;</a></p>
+            </div><!--/span-->
+            <div class="col-6 col-lg-6">
+              <h2>Level Difficult <%= raw "&#9829;" * 4 %> </h2>
+              <p>To są bajki do przemyślenia. Opowiadania, które, jeśli ich uważnie wysłuchasz, juz nigdy nie będziesz taki sam.
+              Opowieści te na długo zagoszą w twoim umyśle i sercu, a jeśli pozwolisz na to,
+              obalą bariery w nim przez lata z mozołem budowane.
+              </p>
+              <p><a class="btn btn-primary" href="/stories?category=4" role="button">bajki trudne &raquo;</a></p>
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+
+        <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">Top 10</a>
+            <a href="#" class="list-group-item">New</a>
+            <a href="#" class="list-group-item">Popular</a>
+          </div>
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+    </main><!--/.container-->
+
+    <footer>
+
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="offcanvas.js"></script>
+  </body>
+</html>

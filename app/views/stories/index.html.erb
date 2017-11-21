@@ -1,0 +1,44 @@
+<%= link_to "Home", welcome_path %> |
+
+<%= link_to "New story", new_story_path %>
+
+
+<h2 class="text-center"> Category of Story</h2>
+<div class="text-center">
+  <% Category.all.each do |category| %>
+  <%= link_to category.name.capitalize, stories_path(category: category) %>
+  <% end %>
+</div>
+
+<h2><strong> Fairytale Search Engine </strong></h2>
+<%= form_tag " ", method: "get" do %>
+  <%= hidden_field_tag "order", @order %>
+  <%= hidden_field_tag "dir", @dir %>
+  <%= text_field_tag("text", @text)%>
+  <%= submit_tag("search") %>
+<% end %>
+
+
+<h4> List of Stories: </h4>
+<table class="table table-sm">
+  <tr class="table-success">
+    <th scope="col" class="text-center"> Cover/Picture </th>
+    <th scope="col"><%= link_to "Title", stories_path(order: "title", dir: (@dir == "asc" ? "desc" : "asc"), text: @text) %></th>
+    <th scope="col"> <%= link_to "Author", stories_path(order: "author", dir: (@dir == "asc" ? "desc" : "asc"), text: @text) %> </th>
+    <th scope="col"> <%= link_to "Level", stories_path(order:"level",dir:(@dir == "asc" ? "desc" : "asc"), text: @text) %></th>
+  </tr>
+  <% @stories.each  do |story| %>
+    <tr>
+    <div>
+        <td class="text-center">
+          <%= link_to story_path(story) do %>
+            <%= image_tag story.picture.url(:thumb)%>
+          <% end %>
+        </td>
+        <td><strong><%= link_to story.title.capitalize, story_path(story) %></strong></td>
+        <td><%= story.author.capitalize %></td>
+        <td><%= story.level.capitalize %></td>
+    </div>
+    </tr>
+  <% end  %>
+</table>

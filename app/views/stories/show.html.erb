@@ -1,0 +1,28 @@
+
+<div class="text-center">
+  <% if @story.previous_story %>
+    <%= link_to "<-- previous story", story_path(@story.previous_story) %> |
+  <% end %>
+  <%= link_to "Index", stories_path %> |
+  <% if @story.next_story %>
+    <%= link_to "next story -->", story_path(@story.next_story)%>
+  <% end %>
+</div>
+
+  <div class="text-center">
+    <h2><strong><%= @story.title.capitalize %></strong></h2>
+    Author: <%= @story.author.capitalize %>
+    <div class="text-center">
+      <%= image_tag @story.picture.url (:medium) %>
+    </div>
+  </div>
+  <div class="text-center">
+    <audio controls>
+      <source src= "<%= @story.file.url %>" type= "<%= @story.file_content_type %>" >
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+  <div class='text-center'>
+    <%= link_to "Delete", story_path(@story), method: "delete", data: {confirm:"Are you sure?"} %> |
+    <%= link_to "Edit", edit_story_path(@story) %>
+  </div>
