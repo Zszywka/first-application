@@ -66,7 +66,13 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
   end
 
+  def vote_up
+    @story = Story.find(params[:id])
+    @story.rate += 1
+    @story.save!
 
+    redirect_to story_path(@story)
+  end
 
   private
 

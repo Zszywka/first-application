@@ -21,10 +21,10 @@
      <%#= f.select :level, [['Easy', 1], ['Medium Easy', 2], ['Average', 3], ['Difficult', 4]]%>
   </div>
   <div class="btn btn-block text-left">
-    Story: <%= form.file_field :file %>
+    Story<%="&#9836;".html_safe%>: <%= form.file_field :file %>
   </div>
   <div class="btn btn-block text-left">
-    Picture: <%= form.file_field :picture %>
+    Picture<%="&#10000;".html_safe%>: <%= form.file_field :picture %>
   </div>
   <div class="btn btn-lg btn-block text-left">
      <%= form.submit ("save") %>

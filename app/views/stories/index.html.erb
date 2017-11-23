@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar bg-light">
-  <a class="navbar-brand" href="/welcome"><strong> Home </strong></a>
+  <a class="navbar-brand" href="/welcome"><strong> Strona główna </strong></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -15,7 +15,7 @@
         </div>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Level</a>
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Poziom</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" href="/stories?category=1">Easy</a>
           <a class="dropdown-item" href="/stories?category=2">Medium easy</a>
@@ -34,7 +34,7 @@
         <%= hidden_field_tag "order", @order %>
         <%= hidden_field_tag "dir", @dir %>
         <%= text_field_tag "text", @text, class: "form-control mr-sm-2", placeholder: "Search" %>
-        <%= submit_tag "search", class: "btn btn-outline-success my-2 my-sm-0" %>
+        <%= submit_tag "search", class: "btn btn-outline-primary my-2 my-sm-0" %>
       <% end %>
   </div>
 </nav>

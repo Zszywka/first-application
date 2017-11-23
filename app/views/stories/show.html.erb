@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar bg-light">
-  <a class="navbar-brand" href="/welcome"><strong> Home </strong></a>
+  <a class="navbar-brand" href="/welcome"><strong> Strona główna </strong></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,59 +9,45 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Sign in</a>
-          <a class="dropdown-item" href="#">Sign up</a>
-          <a class="dropdown-item" href="#">Sign out</a>
+          <a class="dropdown-item" href="#">Zaloguj się</a>
+          <a class="dropdown-item" href="#">Wyloguj się</a>
+          <a class="dropdown-item" href="#"> Zarejestruj się</a>
         </div>
       </li>
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Level</a>
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Poziom</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="/stories?category=1">Easy</a>
-          <a class="dropdown-item" href="/stories?category=2">Medium easy</a>
-          <a class="dropdown-item" href="/stories?category=3">Avarage</a>
-          <a class="dropdown-item" href="/stories?category=4">Dificult</a>
+          <a class="dropdown-item" href="/stories?category=1">łatwa</a>
+          <a class="dropdown-item" href="/stories?category=2">średnio łatwa</a>
+          <a class="dropdown-item" href="/stories?category=3">średnio trudna</a>
+          <a class="dropdown-item" href="/stories?category=4">trudna</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href=" "> Create Your List of Stories</a>
+        <a class="nav-link" href=" "> Stwórz własną listę bajek </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/stories/new"> Create New story</a>
+        <a class="nav-link" href="/stories/new"> Stwórz nową bajkę </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/stories"> List of Story </a>
+        <a class="nav-link" href="/stories"> Lista bajek i opowiadań </a>
       </li>
     </ul>
       <%= form_tag stories_path, method: "get", class: "form-inline my-2 my-lg-0" do %>
         <%= hidden_field_tag "order", @order %>
         <%= hidden_field_tag "dir", @dir %>
         <%= text_field_tag "text", @text, class: "form-control mr-sm-2", placeholder: "Search" %>
-        <%= submit_tag "search", class: "btn btn-outline-success my-2 my-sm-0" %>
+        <%= submit_tag "search", class: "btn btn-outline-primary my-2 my-sm-0" %>
       <% end %>
   </div>
 </nav>
 
 
 
-
-
-
-
-<div class="text-center">
-  <% if @story.previous_story %>
-    <%= link_to "<-- previous story", story_path(@story.previous_story) %> |
-  <% end %>
-  <%= link_to "Index", stories_path %> |
-  <% if @story.next_story %>
-    <%= link_to "next story -->", story_path(@story.next_story)%>
-  <% end %>
-</div>
-
-  <div class="text-center">
+<div id="gallerywrapper">
+  <div class="text-center" >
     <h2><strong><%= @story.title.capitalize %></strong></h2>
-    Author: <%= @story.author.capitalize %>
     <div class="text-center">
       <%= image_tag @story.picture.url (:medium) %>
     </div>
@@ -72,7 +58,19 @@
       Your browser does not support the audio element.
     </audio>
   </div>
-  <div class='text-center'>
+  <div class="text-center">
+    <% if @story.previous_story %>
+      <a class="next" href="#pic2"><%= link_to raw("&#x25C0;"), story_path(@story.previous_story) %></a> |
+    <% end %>
     <%= link_to "Delete", story_path(@story), method: "delete", data: {confirm:"Are you sure?"} %> |
-    <%= link_to "Edit", edit_story_path(@story) %>
+    <%= link_to "Edit", edit_story_path(@story) %> |
+    <% if @story.next_story %>
+      <a class="next" href="#pic2"><%= link_to "&#x25B6;".html_safe, story_path(@story.next_story)%></a>
+    <% end %>
   </div>
+  <div class="text-center">
+    Author: <%= @story.author.capitalize %>
+  </div>
+</div>
+
+<%= render "rates/vote" %>
