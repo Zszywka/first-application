@@ -1,0 +1,5 @@
+<strong>Oceń: </strong>
+<p>
+  <%= link_to ("&#x1F44D;").html_safe, vote_up_story_path(@story), method: "post" %>
+  <%= @story.rate %>
+</p>

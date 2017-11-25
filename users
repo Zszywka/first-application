@@ -1,0 +1,503 @@
+create database test;
+drop database test;
+\c template1
+\l
+create database test;
+create table people (name VARCHAR, surname VARCHAR, age INTEGER )
+;
+\dt
+insert into people (name, surname, age) Values ('Anna', 'Nowak', '25')
+;
+\dt
+\d people
+\h
+\h?
+\?
+select * from people
+;
+insert into people (name, surname, age) Values ('Anna', 'Nowak', '25')
+;
+select * from people
+;
+drop people
+;
+drop people
+;
+create table  people (id serial primary key, name varchar, surname varchar, age intiger);
+create table  people (id serial primary key, name varchar, surname varchar, age integer);
+drop table people
+;
+create table  oplid serial primary key, name varchar, surname varchar, age integer);
+insert into people (name, surname, age) Values ('Anna', 'Nowak', '25')
+;
+insert into people (name, surname, age) Values ('Anna', 'Nowak', '25')
+;
+select * from people
+;
+insert into people (name, surname, age) Values ('Anna', 'Nowak', '25')
+;
+select * from people
+;
+create table  car (id serial primary key, mark varchar, type varchar, engine decimal, year integer, efficient boolean, course integer );
+select * from people
+;
+\d car
+select * from car;
+insert into car (mark, type, engine, year, efficient, course) Values ('Skoda', 'Fabia', 1.4, 2010, true, 23);
+insert into car (mark, type, engine, year, efficient, course) Values ('Ford', 'Focus', 1.8, 2013, false, 48);
+insert into car (mark, type, engine, year, efficient, course) Values ('Volkswagen', 'Polo', 1.4, 2007, false, 55);
+select * from car;
+select * from naprawy;
+select * from naprawy;
+\c
+select * from naprawy;
+delete drom naprawy;
+delete from naprawy;
+select * from naprawy;
+select * from naprawy;
+select * from samochody;
+delete from samochody;
+\dt
+DROP TABLE IF EXISTS wypozyczenia;
+DROP TABLE IF EXISTS karty_klientow;
+DROP TABLE IF EXISTS naprawy;
+DROP TABLE IF EXISTS samochody;
+DROP TABLE IF EXISTS klienci;
+DROP TABLE IF EXISTS wypozyczenia;
+DROP TABLE IF EXISTS karty_klientow;
+DROP TABLE IF EXISTS naprawy;
+DROP TABLE IF EXISTS samochody;
+DROP TABLE IF EXISTS klienci;
+```CREATE TABLE samochody (
+  id SERIAL PRIMARY KEY,
+  marka VARCHAR,
+  model VARCHAR,
+  pojemnosc_silnika DECIMAL,
+  rok_produkcji INTEGER,
+  jest_sprawne BOOLEAN,
+  przebieg INTEGER
+);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Skoda', 'Fabia', 1.4, 2010, true, 50);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Ford', 'Focus', 1.8, 2013, false, 78);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Volkswagen', 'Polo', 1.6, 2007, true, 29);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Skoda', 'Octavia', 1.4, 2008, true, 87);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Ford', 'Puma', 1.4, 2004, true, 85);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Ford', 'Fiesta', 1.4, 2007, true, 95);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Ford', 'Mondeo', 1.6, 2007, true, 10);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Volksawgen', 'Passat', 1.6, 2008, true, 87);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('BMW', 'E87', 1.6, 2010, true, 61);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Citroen', 'Xsara', 1.6, 2008, true, NULL);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Renault', 'Megane', 1.4, 2010, true, 52);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Mazda', 'MX-3', 1.4, 2010, true, 39);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Opel', 'Tigra', 1.6, 2009, true, 67);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Skoda', 'Fabia', 1.4, 2009, true, 20);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Opel', 'Corsa', 1.4, 2004, true, 47);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Volkswagen', 'Golf IV', 1.6, 2010, true, 58);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Kia', 'Sephia', 1.4, 2010, true, 5);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Opel', 'Astra', 1.8, 2013, true, 42);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Opel', 'Vectra', 1.8, 2013, true, 35);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Audi', '800s', 1.8, 2009, true, 85);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Renault', 'Laguna', 1.8, 2010, true, 38);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Seat', 'Arosa', 1.4, 2012, true, NULL);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Mercedes', 'Benz', 1.4, 2010, true, 57);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Renault', 'Clio', 1.4, 2007, false, 7);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Seat', 'Cordoba', 1.4, NULL, true, 53);
+CREATE TABLE samochody (
+ id SERIAL PRIMARY KEY,
+ marka VARCHAR,
+ model VARCHAR,
+ pojemnosc_silnika DECIMAL,
+ rok_produkcji INTEGER,
+ jest_sprawne BOOLEAN,
+ przebieg INTEGER
+);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Skoda', 'Fabia', 1.4, 2010, true, 50);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Ford', 'Focus', 1.8, 2013, false, 78);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Volkswagen', 'Polo', 1.6, 2007, true, 29);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Skoda', 'Octavia', 1.4, 2008, true, 87);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Ford', 'Puma', 1.4, 2004, true, 85);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Ford', 'Fiesta', 1.4, 2007, true, 95);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Ford', 'Mondeo', 1.6, 2007, true, 10);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Volksawgen', 'Passat', 1.6, 2008, true, 87);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('BMW', 'E87', 1.6, 2010, true, 61);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Citroen', 'Xsara', 1.6, 2008, true, NULL);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Renault', 'Megane', 1.4, 2010, true, 52);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Mazda', 'MX-3', 1.4, 2010, true, 39);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Volvo', 'C30', 1.4, 2010, false, 25);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Opel', 'Tigra', 1.6, 2009, true, 67);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Skoda', 'Fabia', 1.4, 2009, true, 20);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Opel', 'Corsa', 1.4, 2004, true, 47);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Volkswagen', 'Golf IV', 1.6, 2010, true, 58);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Kia', 'Sephia', 1.4, 2010, true, 5);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Opel', 'Astra', 1.8, 2013, true, 42);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Opel', 'Vectra', 1.8, 2013, true, 35);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Audi', '800s', 1.8, 2009, true, 85);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Renault', 'Laguna', 1.8, 2010, true, 38);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Seat', 'Arosa', 1.4, 2012, true, NULL);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Mercedes', 'Benz', 1.4, 2010, true, 57);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Renault', 'Clio', 1.4, 2007, false, 7);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Seat', 'Cordoba', 1.4, NULL, true, 53);
+delete from samochody where rok_produkcji < 2009;
+select* from samochody where rok_produkcji < 2009;
+delete from samochody where marka = 'Opel' and pojemnosc_silnika > 1.4;
+select * from samochody where marka = 'Opel' and pojemnosc_silnika > 1.4;
+```CREATE TABLE samochody (
+  id SERIAL PRIMARY KEY,
+  marka VARCHAR,
+  model VARCHAR,
+  pojemnosc_silnika DECIMAL,
+  rok_produkcji INTEGER,
+  jest_sprawne BOOLEAN,
+  przebieg INTEGER
+);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Skoda', 'Fabia', 1.4, 2010, true, 50);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Ford', 'Focus', 1.8, 2013, false, 78);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Volkswagen', 'Polo', 1.6, 2007, true, 29);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Skoda', 'Octavia', 1.4, 2008, true, 87);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Ford', 'Puma', 1.4, 2004, true, 85);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Ford', 'Fiesta', 1.4, 2007, true, 95);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Ford', 'Mondeo', 1.6, 2007, true, 10);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Volksawgen', 'Passat', 1.6, 2008, true, 87);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('BMW', 'E87', 1.6, 2010, true, 61);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Citroen', 'Xsara', 1.6, 2008, true, NULL);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Renault', 'Megane', 1.4, 2010, true, 52);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Mazda', 'MX-3', 1.4, 2010, true, 39);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Volvo', 'C30', 1.4, 2010, false, 25);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Opel', 'Tigra', 1.6, 2009, true, 67);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Skoda', 'Fabia', 1.4, 2009, true, 20);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Opel', 'Corsa', 1.4, 2004, true, 47);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Volkswagen', 'Golf IV', 1.6, 2010, true, 58);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Kia', 'Sephia', 1.4, 2010, true, 5);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Opel', 'Astra', 1.8, 2013, true, 42);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Opel', 'Vectra', 1.8, 2013, true, 35);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Audi', '800s', 1.8, 2009, true, 85);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Renault', 'Laguna', 1.8, 2010, true, 38);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Seat', 'Arosa', 1.4, 2012, true, NULL);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Mercedes', 'Benz', 1.4, 2010, true, 57);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Renault', 'Clio', 1.4, 2007, false, 7);
+INSERT INTO samochody (marka, model, pojemnosc_silnika, rok_produkcji, jest_sprawne, przebieg) VALUES ('Seat', 'Cordoba', 1.4, NULL, true, 53);
+;
+select * from samochody;
+update samochody set jest_sprawne = false where marka = "Skoda", model = "Fabia", rok_produkcji = 2010
+;
+update samochody set jest_sprawne = false where marka = 'Skoda', model = 'Fabia', rok_produkcji = 2010;
+update samochody set jest_sprawne = false where marka = 'Skoda' and model = 'Fabia' and  rok_produkcji = 2010;
+update samochody set rok_produkcji = rok_produkcji + 1  where marka = 'Ford';
+select * from samochody;
+update samochody set jest_sprawne = true  where pojemnosc_silnika = 1.4 and rok_produkcji <2009;
+select marka from samochody
+;
+select marka,model from samochody;
+select distinct(marka) from samochody;
+select distinct(marka,model) from samochody;
+select distinct(rok_produkcji) from samochody;
+select distinct(pojemnosc_silnika) from samochody;
+select count(*) from smaochody
+;
+select count(*) from smochody;;
+select count(*) from smochody;
+select*from samochody;
+select count(*) samochody where marka = 'Ford' 
+;
+select * from samochody;
+select count(*) from samochody where marka = 'Ford'; 
+select count(*) from samochody where marka = 'Ford' and jest_sprawny= true ; 
+select count(*) from samochody where marka = 'Ford' and jest_sprawny= 'true'; 
+select count(*) from samochody where marka = 'Ford' and jest_sprawne= 'true'; 
+select count(distinct(pojemnosc_silnika)) from samochody;
+\dt
+\c
+\c psql
+\c
+\ c temple1
+\c temple1
+\c templete1
+\c tmplate1
+ls
+\ls
+\l
+\q
+\c tempate1
+\c test
+y
+q
+\q
+\l
+\c template1
+y
+\d
+\dt
+\l
+\c test
+\c test;
+create database animal;
+\c animal
+\l
+create table ssaki (name varchar, type varchar, family varchar);
+\dt
+insert into ssaki (id serial primary key, name,type,family) values (kot,drapiezne, kotowate);
+insert into ssaki (id seria primary key, name,type,family) values (kot,drapiezne, kotowate);
+insert into ssaki ( name,type,family) values (kot,drapiezne, kotowate);
+\q
+\dl
+\d
+select * from samochody
+;
+select * from samochody
+;
+select * from samochody
+;
+\pset pager off
+select * from samochody
+
+select * from samochody marka  in ('Skoda', 'Renault'); 
+select * from samochody where marka  in ('Skoda', 'Renault');
+select * from samochody where rok_produkcji betwenn (2010, 2012);
+select * from samochody where rok_produkcji between (2010, 2012);
+select * from samochody where rok_produkcji between (2010 and 2012);
+select * from samochody where rok_produkcji between 2010 and 2012;
+select * from samochody where jest_sprawny? = true
+select count(marka) from samochody  where rok_produkcji =2014;
+select * from samochody where jest_sprawny? = true
+select count(marka) from samochody  where rok_produkcji =2014;
+select * from samochody where jest_sprawny? = true
+select count(marka='Opel') from samochody  where rok_produkcji =2014;
+select * from samochody where jest_sprawny? = true
+select count(marka) from samochody  where rok_produkcji =2014;
+select * from samochody where przebieg is nul;
+select * from samochody where przebieg is null;
+select count('marka') from samochody where rok_produkcji = 2014;
+select * from samochody where przebieg is not null;
+select * from samochody where przebieg =  null;
+select * from samochody where przebieg <>  null;
+\pset null 'NULL';
+select * from samochody where marka like 'Vol%'
+;
+select * from samochody where marka like 'S%';
+select * from samochody where marka like '%o%';
+select * from samochody where marka like '_o%';
+select count('marka'='Opel') from samochody where rok_produkcji = 2014;
+select * from samochody order by marka
+;
+select * from samochody order by marka,model;
+select * from samochody order by marka desc,model asc;
+select count(*) from samochody where przebieg is not null;
+select * from samochód where 'jest_sprawne' = false and order by 'przebieg' desc;
+select * from samochody where 'jest_sprawne' = false and order by 'przebieg' desc;
+select * from samochody where jest_sprawne = false and order by przebieg desc;
+select * from samochody where jest_sprawne = false order by przebieg desc;
+select * from samochody limit 5;
+select * from samochody order by marka limit 5;
+select * from samochody order by pzebieg limit 5;
+select * from samochody order by przebieg limit 5;
+select * from samochody order by przebieg desc limit 5;
+select * from samochody order by przebieg asc limit 5;
+select * from samochody order by rok_produkcji desc limit 1;
+\pset null 'NULL'
+select * from samochody order by rok_produkcji desc limit 1;
+select (*) from samochody order by rok_produkcji ascc limit 1;
+select (*) from samochody order by rok_produkcji asc limit 1;
+select (*) from samochody order by rok_produkcji limit 1;
+select * from samochody order by rok_produkcji limit 1;
+select * from samochody order by rok_produkcji asc  limit 1;
+select * from samochody where jest_sprawny = false order by rok_produkcji asc  limit 1;
+select * from samochody where jest_sprawny = false order by rok_produkcji limit 1;
+select * from samochody where jest_sprawny = false order by rok_produkcji limit 1;
+select id,marka,model  from samochody where jest_sprawny = false order by rok_produkcji limit 1;
+select id,marka,model  from samochody 
+;
+select id,marka,model  from samochody  order by przebieg limit 5 offset 2;
+select * from samochody jest_sprawny = false order by rok_produkcji limit 1 offset 2;
+select * from samochody where jest_sprawny = false order by rok_produkcji limit 1 offset 2;
+select * from samochody where jest_sprawny = false order by rok_produkcji limit 1 offset 2;
+select * from samochody where jest_sprawne = false order by rok_produkcji limit 1 offset 2;
+select * from samochody  order by przebieg desc;
+select * from samochody  order by przebieg desc limit 1 offset 1;
+select * from samochody  order by przebieg  limit 1 offset 1;
+select * from samochody where marka='Ford' order by model; 
+select * from samochody where marka='Ford' and  model='Fabia' order by pojemnosc_silnika; 
+select * from samochody where marka='Skoda' and  model='Fabia' order by pojemnosc_silnika; 
+select * from samochody where pojemnosc_silnika <1.6 and jest_sprawne = true order by rok_produkcji, marka, model desc; 
+select * from samochody where pojemnosc_silnika >1.6 and jest_sprawne = true order by rok_produkcji, marka, model desc; 
+select * from samochody where marka='Ford' and  model like 'F%'; 
+select max(przebieg) from samochody
+;
+select min(rok_produkcji) from samochody marka= 'Opel';
+select max(rok_produkcji) from samochody marka= 'Opel';
+select min(rok_produkcji) from samochody where marka= 'Opel';
+select (*) from samochody order by marka limit 1;
+select ('marka') from samochody  limit 1;
+select (*) from samochody order by marka  limit 1;
+select (*) from samochody order by marka limit 1;
+select * from samochody order by marka limit 1;
+select ('marka') from samochody  limit 1;
+select avg(przebieg) from samochody where pojemnosc = 1.4 ;
+select avg(p[3~ojemnosg),  from samochody where pojemnosc_silnika = 1.4 ;
+select avg(pojemnosc_silnika), min(pojemnosc_silnika), max(pojemnosc_silnika) from samochody where pojemnosc = 1.4 ;
+select avg(pojemnosc_silnika), min(pojemnosc_silnika), max(pojemnosc_silnika) from samochody where pojemnosc_silnika = 1.4 ;
+select marka, count(*) from samochodygropu by marka;
+select marka, count(*) from samochody gropu by marka;
+select marka, count(*) from samochody gropu by marka;
+select marka, count(*) from samochody group by marka;
+select marka, sum(przebieg) as suma_przebiegow from samochody group by marka order by suma_przebiegow;
+select rok_produkcji count(*) from samochody group by rok_produkcji; 
+select rok_produkcji count * from samochody group by rok_produkcji; 
+select count(rok_produkcji)  from samochody group by rok_produkcji; 
+select ,rok_produkcji count(rok_produkcji)  from samochody group by rok_produkcji; 
+select rok_produkcji count(rok_produkcji)  from samochody group by rok_produkcji; 
+select rok_produkcji count(rok_produkcji)  from samochody group by rok_produkcji; 
+select rok_produkcji, count(rok_produkcji)  from samochody group by rok_produkcji; 
+select marka,rok_produkcji, count(rok_produkcji)  from samochody group by rok_produkcji; 
+select rok_produkcji, count(rok_produkcji)  from samochody group by rok_produkcji; 
+select samochod_id  count(*)  from naprawy  group by samochod_id; 
+select samochod_id  count (*)  from naprawy  group by samochod_id; 
+select pojemnosc_silnika count(przebieg) from naprawy group by pojemnosc_silnika;
+select pojemnosc_silnika, count(przebieg) from naprawy group by pojemnosc_silnika;
+select pojemnosc_silnika, count(przebieg) from samochody group by pojemnosc_silnika;
+select pojemnosc_silnika, sum(przebieg) from samochody group by pojemnosc_silnika;
+select pojemnosc_silnika, sum(przebieg) from samochody group by pojemnosc_silnika order by sum(przebieg) desc;
+select pojemnosc_silnika, sum(przebieg) from samochody group by pojemnosc_silnika order by sum(przebieg) desc;
+select pojemnosc_silnika, sum(przebieg) from samochody group by pojemnosc_silnika having sum(przebieg) > 300  order by sum(przebieg) desc;
+alter table samochody alter column marka set not null;
+\d samochody
+alter table samochody alter column przebieg  set not null;
+update samochody set przebieg = 0 where przebieg is null;
+alter table samochody alter column przebieg  set not null;
+alter table samochody alter column jest_sprawne set default true;
+\d samochody;
+insert into samochody (marka, model, pojemnosc_silnika, rok_produkcji,przebieg) values ('Volkswagen', 'Golf+', 1.9, 2006, 227);
+\d samochody;
+select * from samochody
+;
+select * from samochody where model ='Ford' and marka='puma';
+select * from samochody where marka ='Ford' and model='puma';
+select * from samochody where marka ='Ford' and model='Puma';
+select * from naprawy
+;
+select (*) from naprawy;
+\d naprawy
+select * from naprawy;
+select from naprawy;
+select (*) from naprawy;
+select (*) from naprawy;
+select * from naprawy;
+\d
+\dt
+\d
+\dt
+\l
+\c template1
+\dt
+drop table car;
+drop table people;
+\c test
+select* from articles;
+select* from articles;
+select* from articles;
+select* from articles;
+\l
+\c
+\q
+select * from articles;
+\l
+\ls
+select * from article
+;
+select * from articles;
+select * from articles;
+from * select articles
+;
+select * from articles;
+\d article
+psql book_development
+\c book_development
+\q
+dt
+;
+\dt;
+\d toys
+select* from toys;
+select* from toys;
+select* from toys;
+select* from toys;
+select* from toys;
+select* from toys;
+select* from toys;
+select* from toys;
+\l
+\dt
+\d
+\dt
+\d
+slect * from books; 
+slect * from books; 
+\d
+\dt
+\l
+\dt
+\d books
+select * from book
+;
+select * from books;
+select * from books;
+\q
+\d
+\dt
+\d films
+\d films;
+\d film;
+\d films
+\d films
+\d opinions
+\d films
+\d opinions
+select*from opinions;
+select*from films;
+delete from films where id=1;
+select*from;
+select*from comments;
+\q
+select*from articles;
+select*from articles;
+select*from article.comments;
+select*from comments;
+select*from article.comments;
+\d users;
+\d articles;
+\d users;
+\d users;
+select * from users;
+\d articles;
+selest * from articles;
+select * from articles;
+/q
+\q
+\d stories;
+\d stories;
+\d stories;
+select* from stories;
+select* from stories;
+/d stories;
+\d stories;
+select* from stories;
+/q
+\q
+\d categories;
+select * from categories;
+selct * from categories;
+select * from categories;
+select * from categories;
+\d categories;
+select * from articles;
+select * form stories
+;
+select * from stories;
+\d stories;
+select * from users;
+q
+\q
+\d users;
+select * from users;
+\d stories;
+\s users;
+\s users;

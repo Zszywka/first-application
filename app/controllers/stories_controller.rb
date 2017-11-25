@@ -1,5 +1,8 @@
 # require "byebug"
 class StoriesController < ApplicationController
+
+  before_action :authenticate_user!, except: [:show, :index, :vote_up]
+
   def index
 
     if params[:category]
@@ -20,7 +23,7 @@ class StoriesController < ApplicationController
     if @text
       @stories = @stories.where("title ilike :text or author ilike :text or level ilike :text", text: "%#{@text}%" )
     end
-# tu dodane
+
     if params[:level]
       @story = Story.which_level(params[:level])
     end
@@ -68,10 +71,20 @@ class StoriesController < ApplicationController
 
   def vote_up
     @story = Story.find(params[:id])
-    @story.rate += 1
-    @story.save!
-
+    if session[:votes] && session[:votes].include?(@story.id)
+      flash[:notice] = "Już głosowałeś!"
+    else
+      @story.rate += 1
+      @story.save!
+      session[:votes] ||= []
+      session[:votes] << @story.id
+    end
+    
     redirect_to story_path(@story)
+  end
+
+  def top10
+
   end
 
   private
