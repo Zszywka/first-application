@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Story</title>
+
+    <!-- Custom styles for this template -->
+    <link href="offcanvas.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar bg-light">
+      <a class="navbar-brand" href="/stories"><strong> Lista bajek i opowiadań </strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="/users/sign_in">Zaloguj się</a>
+              <a class="dropdown-item" rel="nofollow" data-method="delete" href="/users/sign_out">Wyloguj</a>
+              <a class="dropdown-item" href="/users/sign_up">Zarejestruj się</a>
+              <%= link_to "Wyloguj", destroy_user_session_path, method: "delete", class: "dropdown-item"%>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Poziom trudności</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="/stories?category=1">Łatwe</a>
+              <a class="dropdown-item" href="/stories?category=2">Średnio-Łatwe</a>
+              <a class="dropdown-item" href="/stories?category=3">Średnio-Trudne</a>
+              <a class="dropdown-item" href="/stories?category=4">Trudne</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href=""> Stwórz własną listę bajek i opowiadań</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href=""> Stwórz nową bajkę</a>
+          </li>
+        </ul>
+          <%= form_tag stories_path, method: "get", class: "form-inline my-2 my-lg-0" do %>
+            <%= hidden_field_tag "order", @order %>
+            <%= hidden_field_tag "dir", @dir %>
+            <%= text_field_tag "text", @text, class: "form-control mr-sm-2", placeholder: "Search" %>
+            <%= submit_tag "search", class: "btn btn-outline-primary my-2 my-sm-0" %>
+          <% end %>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-12 col-md-9">
+          <div class="jumbotron">
+            <h3>Witaj w zbiorze bajek i opowiadań czytanych przez lektora.</h3>
+          </div>
+          <div class="row">
+            <div class="col-6 col-lg-6">
+              <p><a class="btn btn-primary btn-lg btn-success" href="/stories?category=1" role="button">bajki dla najmłodszych &raquo;</a></p>
+            </div><!--/span-->
+            <div class="col-6 col-lg-6">
+              <p><a class="btn btn-primary btn-lg btn-info" href="/stories?category=2" role="button"> bajki dla przedszkolaków &raquo;</a></p>
+            </div><!--/span-->
+            <div class="col-6 col-lg-6 ">
+              <p><a class="btn btn-primary btn-lg btn-warning" href="/stories?category=3" role="button">bajki dla dzieci w wieku szkolnym &raquo;</a></p>
+            </div><!--/span-->
+            <div class="col-6 col-lg-6">
+              <p><a class="btn btn-primary btn-lg btn-danger" href="/stories?category=4" role="button">bajki dla starszych &raquo;</a></p>
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+
+        <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <a href="/stories/top10" class="list-group-item active">Top 10</a>
+            <a href="/stories/idea" class="list-group-item">O pomyśle</a>
+            <a href="/stories/latest_stories" class="list-group-item">Najnowsze Bajki</a>
+            <a href="/suggestions/new" class="list-group-item">Wasze propozycje bajek, basni i opowiadań</a>
+          </div>
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+    </main><!--/.container-->
+
+    <footer>
+
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script src="offcanvas.js"></script>
+  </body>
+</html>

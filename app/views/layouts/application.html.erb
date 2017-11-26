@@ -4,19 +4,20 @@
     <meta charset="utf-8">
     <title>Storyteller</title>
     <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
-
     <meta name="viewpart" content="initial-scale=1,width=dexice-width">
     <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-
   <body>
+
+
+
+
+
     <%= flash[:notice] %>
     <%= flash[:alert] %>
-
     <%= yield %>
   </body>
 </html>

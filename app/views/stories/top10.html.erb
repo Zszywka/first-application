@@ -1,0 +1,15 @@
+<%= render "nav"%>
+<h2 class="center"> top 10 </h2>
+
+<table class="table table-sm">
+  <tr class="table-success">
+    <th class="text-center">Tytuł bajki</th>
+    <th class="text-center">Wasza ocena</th>
+  </tr>
+    <% @stories.each do |story| %>
+  <tr>
+    <td class="text-center"><%= link_to story.title, story_path(story) %></td>
+    <td class="text-center"><%= story.rate%></td>
+  </tr>
+    <% end %>
+</table>

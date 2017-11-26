@@ -37,8 +37,8 @@
       <%= form_tag stories_path, method: "get", class: "form-inline my-2 my-lg-0" do %>
         <%= hidden_field_tag "order", @order %>
         <%= hidden_field_tag "dir", @dir %>
-        <%= text_field_tag "text", @text, class: "form-control mr-sm-2", placeholder: "Search" %>
-        <%= submit_tag "search", class: "btn btn-outline-primary my-2 my-sm-0" %>
+        <%= text_field_tag "text", @text, class: "form-control mr-sm-2", placeholder: "Szukaj" %>
+        <%= submit_tag "Szukaj", class: "btn btn-outline-primary my-2 my-sm-0" %>
       <% end %>
   </div>
 </nav>
@@ -47,7 +47,11 @@
 
 <div id="gallerywrapper">
   <div class="text-center" >
-    <h2><strong><%= @story.title.capitalize %></strong></h2>
+    <h2>
+      <strong><%= @story.title.capitalize %></strong>
+      <strong><%= link_to ("&#x1F44D;").html_safe, vote_up_story_path(@story), method: "post" %></strong>
+        <%= @story.rate %>
+    </h2>
     <div class="text-center">
       <%= image_tag @story.picture.url (:medium) %>
     </div>
@@ -72,5 +76,3 @@
     Author: <%= @story.author.capitalize %>
   </div>
 </div>
-
-<%= render "rates/vote" %>

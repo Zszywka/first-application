@@ -79,18 +79,25 @@ class StoriesController < ApplicationController
       session[:votes] ||= []
       session[:votes] << @story.id
     end
-    
+
     redirect_to story_path(@story)
   end
 
   def top10
+    @stories = Story.order("rate DESC").limit(10)
+  end
 
+  def latest_stories
+    @stories = Story.order("id desc").limit(5)
   end
 
   private
 
   def params_story
     params.require(:story).permit(:title, :author, :file, :level, :picture, :category_id)
+  end
+
+  def idea
   end
 
 end

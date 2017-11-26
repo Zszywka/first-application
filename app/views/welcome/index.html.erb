@@ -5,132 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Story</title>
-
-    <!-- Custom styles for this template -->
     <link href="offcanvas.css" rel="stylesheet">
   </head>
 
   <body>
+<%= render "/stories/nav" %>
 
-    <nav class="navbar navbar-expand-md navbar bg-light">
-      <a class="navbar-brand" href="/stories"><strong> Lista bajek i opowiadań </strong></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="/users/sign_in">Zaloguj się</a>
-              <a class="dropdown-item" rel="nofollow" data-method="delete" href="/users/sign_out">Wyloguj</a>
-              <a class="dropdown-item" href="/users/sign_up">Zarejestruj się</a>
-              <%= link_to "Wyloguj", destroy_user_session_path, method: "delete", class: "dropdown-item"%>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Poziom trudności</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="/stories?category=1">Łatwe</a>
-              <a class="dropdown-item" href="/stories?category=2">Średnio-Łatwe</a>
-              <a class="dropdown-item" href="/stories?category=3">Średnio-Trudne</a>
-              <a class="dropdown-item" href="/stories?category=4">Trudne</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href=""> Stwórz własną listę bajek i opowiadań</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href=""> Stwórz nową bajkę</a>
-          </li>
-        </ul>
-          <%= form_tag stories_path, method: "get", class: "form-inline my-2 my-lg-0" do %>
-            <%= hidden_field_tag "order", @order %>
-            <%= hidden_field_tag "dir", @dir %>
-            <%= text_field_tag "text", @text, class: "form-control mr-sm-2", placeholder: "Search" %>
-            <%= submit_tag "search", class: "btn btn-outline-primary my-2 my-sm-0" %>
-          <% end %>
-      </div>
-    </nav>
 
     <main role="main" class="container">
 
       <div class="row row-offcanvas row-offcanvas-right">
-
         <div class="col-12 col-md-9">
-          <div class="jumbotron">
-            <h3>Witaj w zbiorze bajek i opowiadań czytanych przez lektora.</h3>
-            <p> Zamysł jest prosty. Puść dziecku dowolną bajkę, baśń lub opowiadanie na dobranoc lub w innym czasie.
-              Nie zawiera ona obrazów, tylko dzwięki i słowa pobudzające wyobraźnię.
-              Wybierz dziecku poziom, gdyż bajki są na różnorodnym poziomie.
-              Masz pewność, że Twoje dziecko nie zobaczy i nie usłyszy nic nieodpowiedniego.
-              Wszystkie wpisy są skontrolowane przez administratora.
-            </p>
-            <p>
-              Jednak jeśli chcesz stworzyć swoją własną bajkotekę, to świetnie bo masz taką możliwość.
-              Możesz się zarejestrować i tworzyć własne czytane opowiadania.
-              Może to właśnie Twoje bajki najbardziej spodobają się dzieciom?
-            </p>
-              Bajki są ponadczasowe. Niektóre, oprócz podstawowego przekazu, zawierają kilka, warstw i poziomów.
-              Nawet dorosły znajdzie to coś dla siebie. Usiądz wygodnie z ulubiony napojem, odpręż się i <strong>odkryj bajkę na nowo albo wróci do czasów dzieciństwa.</strong></p>
-          </div>
           <div class="row">
             <div class="col-6 col-lg-6">
-              <h2>Poziom: Łatwe &#9829;</h2>
-              <p> Ten poziom zawiera bajki z prostym przekazem dla najmłodszych dzieci.
-                Wprawdzie każda bajka może być analizowana wielopłaszczyznowo, ale te zostały specjalnie wybrane dla naszych najmłodszych słuchaczy.
-                Mimo rozdzielenia na poziomy, każde dziecko może bez obaw słuchać bajek z każdego poziomu.
-              </p>
-              <p><a class="btn btn-primary" href="/stories?category=1" role="button"> bajki proste &raquo;</a></p>
-            </div><!--/span-->
-            <div class="col-6 col-lg-6">
-              <h2>Poziom: Średnio-Łatwe <%= raw "&#9829;" * 2 %> </h2>
-              <p> Ten poziom jest odrobine trudniejszy niż poziom poprzedni. Bajki tu zawarte posiadają więcej watków.
-                  Zaczarowany świat symboli i przesłań zaczyna się rozbudowywać, rozwijajac tym samym dziecięcą wyobraznię.
-                  Dziecko słuchając tych bajek poziom po pozimie, tworzy obrazy, postacie i zdarzenia w swojej głowie czasami się z nimi utożsamiając.
-                  W tym dziale zostanie poruszonych wiele problemów wieku przedszkolnego.
-              </p>
-              <p><a class="btn btn-primary" href="/stories?category=2" role="button"> bajki średnio-łatwe &raquo;</a></p>
+              <p><a class="btn btn-primary btn-lg btn-success" href="/stories?category=1" role="button">bajki dla najmłodszych &raquo;</a></p>
             </div><!--/span-->
             <div class="col-6 col-lg-6 ">
-              <h2>Poziom: Średnio-Trudne <%= raw "&#9829;" * 3 %> </h2>
-              <p> Te bajki są przeznaczone dla starszych dzieci, choć i młodsze mogą ich słuchać.
-                Są bardziej rozbudowane i skomplikowane niż poprzednie działy.
-                Treść i znaczenie w nich zawarte są dziś zaskakująco żywe i pozwolą dzieciom rozwiązać nie jedną swoją rozterkę, tęsknotę czy problem.
-              </p>
-              <p><a class="btn btn-primary" href="/stories?category=3" role="button">bajki średnio-trudne &raquo;</a></p>
+              <p><a class="btn btn-primary btn-lg btn-warning" href="/stories?category=3" role="button">bajki dla dzieci w wieku szkolnym &raquo;</a></p>
             </div><!--/span-->
             <div class="col-6 col-lg-6">
-              <h2>Poziom: Trudne <%= raw "&#9829;" * 4 %> </h2>
-              <p>To są bajki do przemyślenia. Opowiadania, które, jeśli ich uważnie wysłuchasz, juz nigdy nie będziesz taki sam.
-              Opowieści te na długo zagoszą w twoim umyśle i sercu, a jeśli pozwolisz na to,
-              obalą bariery w nim przez lata z mozołem budowane.
-              </p>
-              <p><a class="btn btn-primary" href="/stories?category=4" role="button">bajki trudne &raquo;</a></p>
+              <p><a class="btn btn-primary btn-lg btn-info" href="/stories?category=2" role="button"> bajki dla przedszkolaków &raquo;</a></p>
+            </div><!--/span-->
+            <div class="col-6 col-lg-6">
+              <p><a class="btn btn-primary btn-lg btn-danger" href="/stories?category=4" role="button">bajki dla starszych &raquo;</a></p>
             </div><!--/span-->
           </div><!--/row-->
         </div><!--/span-->
 
         <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <a href="#" class="list-group-item active">Top 10</a>
-            <a href="#" class="list-group-item">O pomyśle</a>
-            <a href="#" class="list-group-item">Wasze propozycje bajek, basni i opowiadań</a>
-            <a href="#" class="list-group-item">Kontakt</a>
+            <a href="/stories/top10" class="list-group-item green shadow" >Top 10</a>
+            <a href="/stories/idea" class="list-group-item red shadow">O pomyśle</a>
+            <a href="/stories/latest_stories" class="list-group-item yellow shadow">Najnowsze Bajki</a>
+            <a href="/suggestions/new" class="list-group-item blue shadow">Wasze propozycje bajek, basni i opowiadań</a>
           </div>
         </div><!--/span-->
       </div><!--/row-->
-
-      <hr>
-
     </main><!--/.container-->
 
-    <footer>
 
-    </footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <%= @story1.title.capitalize %>
+            </div>
+            <div class="panel-body img">
+              <%= link_to story_path(@story1) do %>
+                <%= image_tag @story1.picture.url(:small)%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="panel panel-danger">
+            <div class="panel-heading"><%= @story2.title.capitalize %></div>
+            <div class="panel-body img">
+              <%= link_to story_path(@story2) do %>
+                <%= image_tag @story2.picture.url(:small)%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="panel panel-success">
+            <div class="panel-heading"><%= @story3.title.capitalize %></div>
+            <div class="panel-body img">
+              <%= link_to story_path(@story3) do %>
+                <%= image_tag @story3.picture.url(:small)%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><br>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading"><%= @story4.title.capitalize %></div>
+            <div class="panel-body img">
+              <%= link_to story_path(@story4) do %>
+                <%= image_tag @story4.picture.url(:small)%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading"><%= @story5.title.capitalize %></div>
+            <div class="panel-body img">
+              <%= link_to story_path(@story5) do %>
+                <%= image_tag @story5.picture.url(:small)%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading"><%= @story6.title.capitalize %></div>
+            <div class="panel-body img">
+              <%= link_to story_path(@story6) do %>
+                <%= image_tag @story6.picture.url(:small)%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><br><br>
+
+    <footer class="container-fluid text-center">
+
+
 
 
     <!-- Bootstrap core JavaScript

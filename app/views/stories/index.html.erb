@@ -1,31 +1,36 @@
 <%= render "nav" %>
 
-<h2 class="text-center"> Category of Story</h2>
+<!-- <h2 class="text-center"> Kategorie bajek</h2>
 <div class="text-center">
   <% Category.all.each do |category| %>
   <%= link_to category.name.capitalize, stories_path(category: category) %>
   <% end %>
-</div>
+</div> -->
 
-<table class="table table-sm">
-  <tr class="table-success">
+
+
+<div class="table-responsive margin: 50px">
+<table class="table table-bordered table-condensed table-hover">
+  <tr class="table-danger text-center">
     <th scope="col" class="text-center"> Story </th>
-    <th scope="col"><%= link_to "Title", stories_path(order: "title", dir: (@dir == "asc" ? "desc" : "asc"), text: @text) %></th>
-    <th scope="col"> <%= link_to "Author", stories_path(order: "author", dir: (@dir == "asc" ? "desc" : "asc"), text: @text) %> </th>
-    <th scope="col"> <%= link_to "Level", stories_path(order:"level",dir:(@dir == "asc" ? "desc" : "asc"), text: @text) %></th>
+    <th scope="col"><%= link_to "Tytuł", stories_path(order: "title", dir: (@dir == "asc" ? "desc" : "asc"), text: @text) %></th>
+    <th scope="col"> <%= link_to "Autor", stories_path(order: "author", dir: (@dir == "asc" ? "desc" : "asc"), text: @text) %> </th>
+    <th scope="col"> <%= link_to "Poziom trudności", stories_path(order:"level",dir:(@dir == "asc" ? "desc" : "asc"), text: @text) %></th>
   </tr>
   <% @stories.each  do |story| %>
     <tr>
     <div>
-        <td class="text-center">
+        <td class="text-center table-dark margin:">
           <%= link_to story_path(story) do %>
             <%= image_tag story.picture.url(:thumb)%>
           <% end %>
         </td>
-        <td><strong><%= link_to story.title.capitalize, story_path(story) %> &#xbb; </strong><input onclick='responsiveVoice.speak("<%= story.title.capitalize %>");' type='button' value='🔊 Play' /></td>
-        <td><%= story.author.capitalize %></td>
-        <td><%= story.level.capitalize %></td>
+        <td class="text-center table-info"><strong><%= link_to story.title.capitalize, story_path(story) %></strong></td>
+        <td class="text-center table-info"><%= story.author.capitalize %></td>
+        <!-- <td><strong><%#= link_to story.title.capitalize, story_path(story) %> &#xbb; </strong><input onclick='responsiveVoice.speak("<%= story.title.capitalize %>");' type='button' value='🔊 Play' /></td> -->
+        <td class="text-center table-info"><%= story.level.capitalize %></td>
     </div>
     </tr>
   <% end  %>
 </table>
+</div>

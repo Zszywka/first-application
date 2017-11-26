@@ -1,0 +1,15 @@
+<%= render "nav"%>
+<h2> Najnowsze bajki </h2>
+
+<table class="table table-sm">
+  <tr class="table-success">
+    <th class="text-center"> Tytuł bajki </th>
+    <th class="text-center"> kiedy bajka została nagrana </th>
+  </tr>
+  <% @stories.each do |story| %>
+  <tr>
+    <td class="text-center"><%= story.title %></td>
+    <td class="text-center"><%= story.file_updated_at.to_date %></td>
+  </tr>
+  <% end  %>
+</table>

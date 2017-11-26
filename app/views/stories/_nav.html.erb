@@ -1,39 +1,44 @@
-<nav class="navbar navbar-expand-md navbar bg-light">
+<nav class="navbar navbar-expand-md navbar">
   <a class="navbar-brand" href="/welcome"><strong> Strona główna </strong></a>
+  <a class="navbar-brand" href="/stories"><strong> Lista bajek i opowiadań </strong></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
+      <li class="nav-item dropdown navbar-brand">
+      <li class="nav-item dropdown navbar-brand">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Login</strong></a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" href="/users/sign_in">Zaloguj się</a>
-          <a class="dropdown-item" href="/users/sign_out">Wyloguj się</a>
+          <a class="dropdown-item" rel="nofollow" data-method="delete" href="/users/sign_out">Wyloguj</a>
           <a class="dropdown-item" href="/users/sign_up">Zarejestruj się</a>
+          <%= link_to "Wyloguj", destroy_user_session_path, method: "delete", class: "dropdown-item"%>
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Poziom</a>
+      <li class="nav-item dropdown navbar-brand">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Poziom</strong></a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="/stories?category=1">Easy</a>
-          <a class="dropdown-item" href="/stories?category=2">Medium easy</a>
-          <a class="dropdown-item" href="/stories?category=3">Avarage</a>
-          <a class="dropdown-item" href="/stories?category=4">Dificult</a>
+          <a class="dropdown-item" href="/stories?category=1">Dla najmłodszych</a>
+          <a class="dropdown-item" href="/stories?category=2">Dla przedszkolaków</a>
+          <a class="dropdown-item" href="/stories?category=3">Dla dzieci w wieku szkolnym</a>
+          <a class="dropdown-item" href="/stories?category=4">Dla najstarszych</a>
+          <a class="dropdown-item" href="/stories">Wszystkie bajki</a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href=" "> Create Your List of Stories</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/stories/new"> Create New story</a>
+      <li class="nav-item dropdown navbar-brand">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>Twoje Bajki</strong></a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="/stories?category=1">Stwórz Bajkę</a>
+          <a class="dropdown-item" href="/stories?category=2">Twoja lista bajek</a>
+        </div>
       </li>
     </ul>
       <%= form_tag stories_path, method: "get", class: "form-inline my-2 my-lg-0" do %>
         <%= hidden_field_tag "order", @order %>
         <%= hidden_field_tag "dir", @dir %>
-        <%= text_field_tag "text", @text, class: "form-control mr-sm-2", placeholder: "Search" %>
-        <%= submit_tag "search", class: "btn btn-outline-primary my-2 my-sm-0" %>
+        <%= text_field_tag "text", @text, class: "form-control mr-sm-2", placeholder: "Szukaj" %>
+        <%= submit_tag "szukaj", class: "btn btn-outline-primary my-2 my-sm-0 button_green" %>
       <% end %>
   </div></nav>
