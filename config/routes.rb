@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :stories do
     member do
       post  "vote_up"
+      get "the_same_author"
     end
     collection do
       get "top10"

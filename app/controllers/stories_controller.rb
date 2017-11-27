@@ -1,16 +1,16 @@
 # require "byebug"
 class StoriesController < ApplicationController
 
-  before_action :authenticate_user!, except: [:show, :index, :vote_up]
+  before_action :authenticate_user!, except: [:show, :index, :vote_up, :top10]
+
 
   def index
-
+      # stronicowanie za pomoca kaminari
+    @stories = Story.page(params[:page]).per(2)
     if params[:category]
       @category = Category.find(params[:category])
       @stories = @category.stories
       # Story.where(category_id: params[:category])
-    else
-      @stories = Story.all
     end
 
     @order = params[:order] || "title"
@@ -67,6 +67,7 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
+    @stories = Story.all
   end
 
   def vote_up
@@ -89,6 +90,11 @@ class StoriesController < ApplicationController
 
   def latest_stories
     @stories = Story.order("id desc").limit(5)
+  end
+
+  def the_same_author
+    @stories = Story.all
+    @story = Story.find(params[:id])
   end
 
   private

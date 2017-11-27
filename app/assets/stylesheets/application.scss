@@ -29,6 +29,11 @@
     box-shadow: 0 4px 8px 0;
 }
 
+.blue1{
+    color: #1E90FF;
+    box-shadow: 0 4px 8px 0;
+}
+
 .yellow {
     background-color: #FFD700;
     color: black;
@@ -84,6 +89,22 @@ body {
     background-attachment: fixed;
 }
 
+.row {
+  margin-right: 50px;
+  margin-left: 30px;
+}
+
+.card {
+    // position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 500;
+    word-wrap: break-word;
+    background-color: #efdf62;
+    border: 0;
+}
 
 
 // body {

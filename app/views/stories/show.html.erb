@@ -1,78 +1,67 @@
-<nav class="navbar navbar-expand-md navbar bg-light">
-  <a class="navbar-brand" href="/welcome"><strong> Strona główna </strong></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<%= render "nav"%>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="/users/sign_in">Zaloguj się</a>
-          <a class="dropdown-item" href="/users/sign_out">Wyloguj się</a>
-          <a class="dropdown-item" href="/users/sign_up"> Zarejestruj się</a>
+<div class = "container row text-center">
+  <div class="card">
+    <div id="gallerywrapper">
+      <div class="text-center" >
+        <h2>
+          <strong><%= @story.title.capitalize %></strong>
+          <strong><%= link_to ("&#x1F44D;").html_safe, vote_up_story_path(@story), method: "post", class: "blue1"%></strong>
+            <%= @story.rate %>
+        </h2>
+        <div class="text-center">
+          <%= image_tag @story.picture.url (:medium) %>
         </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Poziom</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="/stories?category=1">łatwa</a>
-          <a class="dropdown-item" href="/stories?category=2">średnio łatwa</a>
-          <a class="dropdown-item" href="/stories?category=3">średnio trudna</a>
-          <a class="dropdown-item" href="/stories?category=4">trudna</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href=" "> Stwórz własną listę bajek </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/stories/new"> Stwórz nową bajkę </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/stories"> Lista bajek i opowiadań </a>
-      </li>
-    </ul>
-      <%= form_tag stories_path, method: "get", class: "form-inline my-2 my-lg-0" do %>
-        <%= hidden_field_tag "order", @order %>
-        <%= hidden_field_tag "dir", @dir %>
-        <%= text_field_tag "text", @text, class: "form-control mr-sm-2", placeholder: "Szukaj" %>
-        <%= submit_tag "Szukaj", class: "btn btn-outline-primary my-2 my-sm-0" %>
-      <% end %>
-  </div>
-</nav>
-
-
-
-<div id="gallerywrapper">
-  <div class="text-center" >
-    <h2>
-      <strong><%= @story.title.capitalize %></strong>
-      <strong><%= link_to ("&#x1F44D;").html_safe, vote_up_story_path(@story), method: "post" %></strong>
-        <%= @story.rate %>
-    </h2>
-    <div class="text-center">
-      <%= image_tag @story.picture.url (:medium) %>
+      </div>
+      <p></p>
+      <div class="text-center">
+        <audio controls>
+          <source src= "<%= @story.file.url %>" type= "<%= @story.file_content_type %>" >
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      <div class="text-center container">
+        <% if @story.previous_story %>
+          <!-- <a class="next" href="#pic2"><%= link_to raw("&#x25C0;"), story_path(@story.previous_story) %></a> | -->
+            <button type="button" class="btn btn-success"><%= link_to raw("&#x25C0;"), story_path(@story.previous_story) %></button>
+        <% end %>
+        <button type="button" class="btn btn-success"><%= link_to "Delete", story_path(@story), method: "delete", data: {confirm:"Are you sure?"} %></button>
+        <button type="button" class="btn btn-success"><%= link_to "Edit", edit_story_path(@story) %></button>
+        <% if @story.next_story %>
+          <!-- <a class="next" href="#pic2"><%= link_to "&#x25B6;".html_safe, story_path(@story.next_story)%></a> -->
+            <button type="button" class="btn btn-success"><%= link_to "&#x25B6;".html_safe, story_path(@story.next_story)%></button>
+        <% end %>
+      </div>
+      <div class="text-center">
+        <p></p>
+        <div class="blue1 text-center">Inne bajki tego Autora &#8628;</div>
+        <p></p>
+        <button type="button" class="btn btn-success"><%= link_to @story.author.capitalize, the_same_author_story_path(@story) %></button>
+      </div>
     </div>
   </div>
-  <div class="text-center">
-    <audio controls>
-      <source src= "<%= @story.file.url %>" type= "<%= @story.file_content_type %>" >
-      Your browser does not support the audio element.
-    </audio>
-  </div>
-  <div class="text-center">
-    <% if @story.previous_story %>
-      <a class="next" href="#pic2"><%= link_to raw("&#x25C0;"), story_path(@story.previous_story) %></a> |
-    <% end %>
-    <%= link_to "Delete", story_path(@story), method: "delete", data: {confirm:"Are you sure?"} %> |
-    <%= link_to "Edit", edit_story_path(@story) %> |
-    <% if @story.next_story %>
-      <a class="next" href="#pic2"><%= link_to "&#x25B6;".html_safe, story_path(@story.next_story)%></a>
-    <% end %>
-  </div>
-  <div class="text-center">
-    Author: <%= @story.author.capitalize %>
+  <div class="card">
+    <main role="main" class="container">
+      <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-md-10 sidebar-offcanvas" id="sidebar">
+          <div class="list-group">
+            <div class="blue1 text-center">Podobne &#8628;</div>
+              <p></p>
+            <% @stories.each do |story| %>
+              <% if story.level == @story.level %>
+                <%= link_to story_path(story) do %>
+                  <%= image_tag story.picture.url(:thumb), class:"blue1"%>
+                  <p></p>
+                  <p>
+                    <button type="button" class="btn btn-info text-center"><%= story.title%></button>
+                  </p>
+                  <hr>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
 </div>

@@ -1,18 +1,22 @@
-<h3> Wasze propozycje </h3>
+<div class="container">
+<h2> Wasze propozycje </h2>
 
 <%= form_for @suggestion, html: { multipart: true } do |form| %>
 
   <div class="form-group">
-    <label for="exampleInputTitle"><strong>Propozycja:</strong></label>
-    <p></p>
-    <%= form.text_area :body, class: "form-center"%>
+    <label for="exampleInputTitle">Propozycja:</label>
+    <div class"text-center" placeholder="Enter email" name="text">
+      <%= form.text_area :body%>
+    </div>
   </div>
   <div class="form-group">
-    <label for="exampleInputAuthor"><strong>Autor:</strong></label>
-    <p></p>
-    <%= form.text_field :author, class: "form-center" %>
+    <label for="exampleInputAuthor">Autor:</label>
+    <div class="form-controle" placeholder="Podpisz sie" name="autor">
+      <%= form.text_field :author %>
+    </div>
   </div>
-  <div class="btn btn-lg btn-block text-left">
+  <div class="btn btn-default btn-block text-left">
      <%= form.submit ("save") %>
   </div>
 <% end %>
+</div>
