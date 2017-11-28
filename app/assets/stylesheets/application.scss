@@ -17,6 +17,11 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
+html {
+  max-width: 100%;
+  height: auto;
+}
+
 .green {
     background-color: #4CAF50;
     color: white;
@@ -71,7 +76,7 @@
 .like {
   background-image:url('thumb.png');
   background-repeat:no-repeat;
-  background-size: 200px;
+  background-size: auto;
 }
 
 a {
@@ -81,30 +86,44 @@ a {
 body {
     // background-image: url("intro.jpg");
     // background-color: #FF8C00;
-    background-color: #efdf62;
-    background-repeat: repeat-y;
+    background-image: image-url("intro.jpg");
     // background-image: url("img_tree.png");
-    background-repeat: no-repeat;
-    background-position: right top;
+    // background-position: right top;
     background-attachment: fixed;
 }
 
 .row {
-  margin-right: 50px;
-  margin-left: 30px;
+  // margin-right: 100px;
+  // margin-left: 200px;
+  // opacity: 0.6;
+  // margin: 30px;
+  // background-color: #ffffff;
+  // border: 1px solid black;
+  // opacity: 0.6;
+  filter: alpha(opacity=60);
+  // margin: 5%;
+  font-weight: bold;
+  // color: #000000;
 }
 
-.card {
-    // position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 500;
-    word-wrap: break-word;
-    background-color: #efdf62;
-    border: 0;
+.show {
+  margin-left: 200px;
 }
+
+.table-hover .table-info:hover {
+    opacity: 0.6;
+}
+
+// .picture {
+//   .row {
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+//   -ms-flex-wrap: wrap;
+//   margin-right: -2px;
+//   margin-left: 50px;
+// }
+// }
 
 
 // body {

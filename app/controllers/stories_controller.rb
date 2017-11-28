@@ -1,7 +1,7 @@
 # require "byebug"
 class StoriesController < ApplicationController
 
-  before_action :authenticate_user!, except: [:show, :index, :vote_up, :top10]
+  before_action :authenticate_user!, except: [:show, :index, :vote_up, :top10, :idea, :latest_stories]
 
 
   def index

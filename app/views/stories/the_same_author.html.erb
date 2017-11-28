@@ -1,0 +1,30 @@
+<%= render "nav"%>
+<div class="card">
+  <main role="main" class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-8 col-md-10 sidebar-offcanvas" id="sidebar">
+        <div class="list-group">
+          Inne bajki <%= @story.author %>:
+            <p></p>
+            <% @stories.each do |story| %>
+              <% if story.author == @story.author %>
+                <%= link_to story_path(story) do %>
+                    <%= image_tag story.picture.url(:thumb), class:"blue1"%>
+                    <%= story.title%>
+                    <p></p>
+                  <% end %>
+              <% end %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<hr class="color: green border: solid 2">
+<div class:"strong">
+  Jeśli chcesz więcej bajek tego autora, to napisz to nam w komentarzu &#8628;
+</div>
+<div class="container">
+  <button type="button" class="btn btn-success"><%= link_to "Wasze Propozycje", new_suggestion_path %> </button>
+</div>

@@ -1,7 +1,7 @@
 <%= render "nav"%>
 
-<div class = "container row text-center">
-  <div class="card">
+<div class = "container row text-center show">
+  <div>
     <div id="gallerywrapper">
       <div class="text-center" >
         <h2>
@@ -31,16 +31,14 @@
           <!-- <a class="next" href="#pic2"><%= link_to "&#x25B6;".html_safe, story_path(@story.next_story)%></a> -->
             <button type="button" class="btn btn-success"><%= link_to "&#x25B6;".html_safe, story_path(@story.next_story)%></button>
         <% end %>
+          <button type="button" class="btn btn-success">Autor: <%= link_to @story.author.capitalize, the_same_author_story_path(@story) %></button>
       </div>
-      <div class="text-center">
-        <p></p>
-        <div class="blue1 text-center">Inne bajki tego Autora &#8628;</div>
-        <p></p>
-        <button type="button" class="btn btn-success"><%= link_to @story.author.capitalize, the_same_author_story_path(@story) %></button>
-      </div>
+      <!-- <div class="text-center">
+        <strong>Inne bajki tego Autora >></strong> <button type="button" class="btn btn-success"><%= link_to @story.author.capitalize, the_same_author_story_path(@story) %></button>
+      </div> -->
     </div>
   </div>
-  <div class="card">
+  <div>
     <main role="main" class="container">
       <div class="row row-offcanvas row-offcanvas-right">
         <div class="col-md-10 sidebar-offcanvas" id="sidebar">
