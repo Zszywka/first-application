@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125150531) do
+ActiveRecord::Schema.define(version: 20171128093413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,16 +48,10 @@ ActiveRecord::Schema.define(version: 20171125150531) do
     t.string "author", default: "anonym", null: false
     t.string "title", null: false
     t.string "level", null: false
-    t.string "file_file_name", null: false
-    t.string "file_content_type", null: false
-    t.integer "file_file_size", null: false
-    t.datetime "file_updated_at", null: false
-    t.string "picture_file_name"
-    t.string "picture_content_type"
-    t.integer "picture_file_size"
-    t.datetime "picture_updated_at"
     t.integer "category_id"
     t.integer "rate", default: 0
+    t.string "picture"
+    t.string "audio"
     t.index ["category_id"], name: "index_stories_on_category_id"
   end
 

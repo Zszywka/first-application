@@ -1,9 +1,6 @@
 class Story < ApplicationRecord
-  has_attached_file :file
-  validates_attachment_content_type :file, content_type: /\Aaudio\/.*\z/
-
-  has_attached_file :picture, styles: { medium: "450x450>", small: "240x300", thumb: "180x180>"}
-  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
+  mount_uploader :picture, PictureUploader
+  mount_uploader :audio, AudioUploader
 
   belongs_to :category
   # belongs_to :user
@@ -12,8 +9,10 @@ class Story < ApplicationRecord
   validates :title, presence: true
   validates :author, presence: true
   validates :level, presence: true
-  validates :file, presence: true
+  validates :audio, presence: true
   validates :picture, presence: true
+
+  validate :check_audio_content_type
 
   def next_story
     @story = Story.where("id > ?", self.id ).first
@@ -27,4 +26,7 @@ class Story < ApplicationRecord
     where(level: level)
   end
 
+  def check_audio_content_type
+    errors.add(:audio, "is invalid file type") if audio.content_type !~ /\Aaudio\//
+  end
 end

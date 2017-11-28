@@ -9,7 +9,7 @@ class StoriesController < ApplicationController
     @stories = Story.page(params[:page]).per(2)
     if params[:category]
       @category = Category.find(params[:category])
-      @stories = @category.stories
+      @stories = @stories.where(category_id: @category.id)
       # Story.where(category_id: params[:category])
     end
 
@@ -24,6 +24,7 @@ class StoriesController < ApplicationController
       @stories = @stories.where("title ilike :text or author ilike :text or level ilike :text", text: "%#{@text}%" )
     end
 
+    # TODO to do fix 
     if params[:level]
       @story = Story.which_level(params[:level])
     end
@@ -100,7 +101,7 @@ class StoriesController < ApplicationController
   private
 
   def params_story
-    params.require(:story).permit(:title, :author, :file, :level, :picture, :category_id)
+    params.require(:story).permit(:title, :author, :audio, :level, :picture, :category_id)
   end
 
   def idea

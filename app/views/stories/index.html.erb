@@ -22,7 +22,7 @@
     <div>
         <td class="text-center table-dark margin:">
           <%= link_to story_path(story) do %>
-            <%= image_tag story.picture.url(:thumb)%>
+            <%= image_tag story.picture_url(:thumb) %>
           <% end %>
         </td>
         <td class="text-center table-info"><strong><%= link_to story.title.capitalize, story_path(story) %></strong></td>
@@ -35,4 +35,4 @@
 </table>
 </div>
 
-<%= paginate @stories %> 
+<%= paginate @stories %>
