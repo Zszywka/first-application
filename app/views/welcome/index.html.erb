@@ -1,77 +1,30 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Story</title>
-
-  </head>
-
-  <body>
 <%= render "/stories/nav" %>
 
-
-
-    <main role="main" class="container">
-
-      <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-12 col-md-9">
-          <div class="row">
-            <div class="col-6 col-lg-6">
-              <p><a class="btn btn-primary btn-lg btn-success" href="/stories?category=1" role="button">bajki dla najmłodszych &raquo;</a></p>
-            </div><!--/span-->
-            <div class="col-6 col-lg-6 ">
-              <p><a class="btn btn-primary btn-lg btn-warning" href="/stories?category=3" role="button">bajki dla dzieci w wieku szkolnym &raquo;</a></p>
-            </div><!--/span-->
-            <div class="col-6 col-lg-6">
-              <p><a class="btn btn-primary btn-lg btn-info" href="/stories?category=2" role="button"> bajki dla przedszkolaków &raquo;</a></p>
-            </div><!--/span-->
-            <div class="col-6 col-lg-6">
-              <p><a class="btn btn-primary btn-lg btn-danger" href="/stories?category=4" role="button">bajki dla starszych &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-        </div><!--/span-->
-
-        <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
-          <div class="list-group">
-            <a href="/stories/top10" class="list-group-item green shadow" >Top 10</a>
-            <a href="/stories/idea" class="list-group-item red shadow">O pomyśle</a>
-            <a href="/stories/latest_stories" class="list-group-item yellow shadow">Najnowsze Bajki</a>
-            <a href="/suggestions/new" class="list-group-item blue shadow">Wasze propozycje bajek, basni i opowiadań</a>
-          </div>
-        </div><!--/span-->
-      </div><!--/row-->
-    </main><!--/.container-->
-
-
-    <!-- <div class="container">
-      <div class="row"> -->
-        <div class="col-sm-4">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <% if @stories %>
-                <% @stories.each do |story| %>
-                <%= story.title.capitalize %>
-              </div>
-              <div class="panel-body img">
-                <%= link_to story_path(story) do %>
-                  <%= image_tag story.picture.url, class: "welcome shadow" %>
-                <% end %>
-              </div>
-              <% end %>
-            <% end %>
-          </div>
+<main role="main" class="container">
+  <div class="row row-offcanvas row-offcanvas-right">
+    <%= render "category" %>
+      <div class="col-6 col-md-3 sidebar-offcanvas" id="sidebar">
+        <div class="list-group">
+          <a href="/stories/top10" class="list-group-item green shadow">Top 10</a>
+          <a href="/stories/idea" class="list-group-item red shadow">O pomyśle</a>
+          <a href="/stories/latest_stories" class="list-group-item yellow shadow">Najnowsze Bajki</a>
+          <a href="/suggestions/new" class="list-group-item blue shadow">Wasze propozycje bajek, basni i opowiadań</a>
         </div>
-
-
-
-    <footer class="container-fluid text-center">
-
-
-
-
+      </div>
+  </div>
+</main>
+<div>
+  <div>
+    <% if @stories %>
+      <% @stories.each do |story| %>
+        <%#= story.title.capitalize %>
+        <%= link_to story_path(story) do %>
+          <%= image_tag story.picture.url, class: "welcome picture_welcome" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

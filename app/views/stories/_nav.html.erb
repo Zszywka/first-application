@@ -5,7 +5,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown navbar-brand">
       <li class="nav-item dropdown navbar-brand">
@@ -13,7 +13,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" href="/users/sign_in">Zaloguj się</a>
           <!-- <a class="dropdown-item" rel="nofollow" data-method="delete" href="/users/sign_out">Wyloguj</a> -->
-          <a class="dropdown-item" href="/users/sign_up">Zarejestruj się</a>
+          <!-- <a class="dropdown-item" href="/users/sign_up">Zarejestruj się</a> -->
           <%= link_to "Wyloguj", destroy_user_session_path, method: "delete", class: "dropdown-item"%>
         </div>
       </li>
@@ -41,4 +41,5 @@
         <%= text_field_tag "text", @text, class: "form-control mr-sm-2", placeholder: "Szukaj" %>
         <%= submit_tag "szukaj", class: "btn btn-outline-primary my-2 my-sm-0 button_green" %>
       <% end %>
-  </div></nav>
+  </div>
+</nav>

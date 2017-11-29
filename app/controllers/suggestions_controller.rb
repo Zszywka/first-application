@@ -14,7 +14,6 @@ class SuggestionsController < ApplicationController
     end
   end
 
-
   def index
     @suggestions = Suggestion.all
   end
@@ -22,12 +21,11 @@ class SuggestionsController < ApplicationController
   def destroy
     suggestion = Suggestion.find(params[:id])
     suggestion.destroy
-
     redirect_to suggestions_path
   end
 
   private
-
+  
   def params_suggestion
     params.require(:suggestion).permit(:body, :author)
   end

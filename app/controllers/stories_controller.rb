@@ -1,30 +1,22 @@
-# require "byebug"
 class StoriesController < ApplicationController
 
   before_action :authenticate_user!, except: [:show, :index, :vote_up, :top10, :idea, :latest_stories]
 
-
   def index
-      # stronicowanie za pomoca kaminari
-    @stories = Story.page(params[:page]).per(2)
+    @stories = Story.page(params[:page]).per(3)
     if params[:category]
       @category = Category.find(params[:category])
       @stories = @stories.where(category_id: @category.id)
-      # Story.where(category_id: params[:category])
     end
-
     @order = params[:order] || "title"
     @dir = params[:dir] || "desc"
     if %w(title author level).include?(@order)
       @stories = @stories.order(@order => @dir)
     end
-
     @text = params[:text]
     if @text
       @stories = @stories.where("title ilike :text or author ilike :text or level ilike :text", text: "%#{@text}%" )
     end
-
-    # TODO to do fix
     if params[:level]
       @story = Story.which_level(params[:level])
     end
@@ -36,7 +28,6 @@ class StoriesController < ApplicationController
 
   def create
     @story = Story.new(params_story)
-
     if @story.save
       flash[:notice] = "The story was added successfully"
       redirect_to stories_path
@@ -54,7 +45,6 @@ class StoriesController < ApplicationController
     rescue PG::Error => e
       raise if !e.message.include?("lo_unlink failed")
     end
-
     redirect_to stories_path
   end
 
@@ -64,7 +54,6 @@ class StoriesController < ApplicationController
 
   def update
     @story = Story.find(params[:id])
-
     # HACK ned method `path' for 33366:Integer
     saved = begin
               @story.update(params_story)
@@ -75,7 +64,6 @@ class StoriesController < ApplicationController
                 false
               end
             end
-
     if saved
       flash[:notice] = "The story was edited successfully"
       redirect_to @story
@@ -99,7 +87,6 @@ class StoriesController < ApplicationController
       session[:votes] ||= []
       session[:votes] << @story.id
     end
-
     redirect_to story_path(@story)
   end
 

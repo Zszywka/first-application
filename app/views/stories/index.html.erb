@@ -1,15 +1,6 @@
 <%= render "nav" %>
 
-<!-- <h2 class="text-center"> Kategorie bajek</h2>
-<div class="text-center">
-  <% Category.all.each do |category| %>
-  <%= link_to category.name.capitalize, stories_path(category: category) %>
-  <% end %>
-</div> -->
-
-
-
-<div class="table-responsive margin: 50px">
+<div class="table-responsive">
 <table class="table table-bordered table-condensed table-hover">
   <tr class="table-danger text-center">
     <th scope="col" class="text-center"> Story </th>
@@ -20,15 +11,15 @@
   <% @stories.each  do |story| %>
     <tr>
     <div>
-        <td class="text-center table-dark margin:">
+        <td class="text-center bakgraund_table">
           <%= link_to story_path(story) do %>
             <%= image_tag story.picture_url, style: "width: 200px;" %>
           <% end %>
         </td>
-        <td class="text-center table-info"><strong><%= link_to story.title.capitalize, story_path(story) %></strong></td>
-        <td class="text-center table-info"><%= story.author.capitalize %></td>
+        <td class="text-center bakgraund_table"><strong><%= link_to story.title.capitalize, story_path(story) %></strong></td>
+        <td class="text-center bakgraund_table"><strong><%= story.author.capitalize %></strong></td>
         <!-- <td><strong><%#= link_to story.title.capitalize, story_path(story) %> &#xbb; </strong><input onclick='responsiveVoice.speak("<%= story.title.capitalize %>");' type='button' value='🔊 Play' /></td> -->
-        <td class="text-center table-info"><%= story.level.capitalize %></td>
+        <td class="text-center bakgraund_table" style="width: 10em; height: 10em"><strong><%= story.level.capitalize %></strong></td>
     </div>
     </tr>
   <% end  %>

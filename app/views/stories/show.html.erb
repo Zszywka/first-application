@@ -1,63 +1,55 @@
 <%= render "nav"%>
-
-<div class = "container row text-center show">
-  <div>
-    <div id="gallerywrapper">
-      <div class="text-center" >
-        <h2>
-          <strong><%= @story.title.capitalize %></strong>
-          <strong><%= link_to ("&#x1F44D;").html_safe, vote_up_story_path(@story), method: "post", class: "blue1"%></strong>
-            <%= @story.rate %>
-        </h2>
+<div class="row">
+  <div class = "container row text-center show">
+    <div>
+      <div id="gallerywrapper">
         <div class="text-center">
-          <%= image_tag @story.picture.url, class: "show" %>
-        </div>
-      </div>
-      <p></p>
-      <div class="text-center">
-        <audio controls>
-          <source src="<%= @story.audio_url %>" type= "<%= @story.audio.content_type %>" >
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-      <div class="text-center container">
-        <% if @story.previous_story %>
-          <!-- <a class="next" href="#pic2"><%= link_to raw("&#x25C0;"), story_path(@story.previous_story) %></a> | -->
-            <button type="button" class="btn btn-success"><%= link_to raw("&#x25C0;"), story_path(@story.previous_story) %></button>
-        <% end %>
-        <button type="button" class="btn btn-success"><%= link_to "Delete", story_path(@story), method: "delete", data: {confirm:"Are you sure?"} %></button>
-        <button type="button" class="btn btn-success"><%= link_to "Edit", edit_story_path(@story) %></button>
-        <% if @story.next_story %>
-          <!-- <a class="next" href="#pic2"><%= link_to "&#x25B6;".html_safe, story_path(@story.next_story)%></a> -->
-            <button type="button" class="btn btn-success"><%= link_to "&#x25B6;".html_safe, story_path(@story.next_story)%></button>
-        <% end %>
-          <button type="button" class="btn btn-success">Autor: <%= link_to @story.author.capitalize, the_same_author_story_path(@story) %></button>
-      </div>
-      <!-- <div class="text-center">
-        <strong>Inne bajki tego Autora >></strong> <button type="button" class="btn btn-success"><%= link_to @story.author.capitalize, the_same_author_story_path(@story) %></button>
-      </div> -->
-    </div>
-  </div>
-  <div>
-    <main role="main" class="container">
-      <div class="row row-offcanvas row-offcanvas-right">
-        <div class="col-md-10 sidebar-offcanvas" id="sidebar">
-          <div class="list-group">
-            <% @stories.each do |story| %>
-              <% if story.level == @story.level %>
-                <%= link_to story_path(story) do %>
-                  <%= image_tag story.picture.url, class:"blue1 welcome"%>
-                  <p></p>
-                  <p>
-                    <button type="button" class="btn btn-info text-center"><%= story.title%></button>
-                  </p>
-                  <hr>
-                <% end %>
-              <% end %>
-            <% end %>
+          <h2>
+            <strong><%= @story.title.capitalize %></strong>
+            <strong><%= link_to ("&#x1F44D;").html_safe, vote_up_story_path(@story), method: "post", class: "like"%></strong>
+            <%#= link_to( image_tag("images/thumb.jpg"), image_path("/images/thumb.png") ) %>
+              <%= @story.rate %>
+          </h2>
+          <div class="text-cennter col-lg-4"">
+            <%= image_tag @story.picture.url, class: "show" %>
           </div>
         </div>
+        <p></p>
+        <div class="text-center">
+          <audio controls>
+            <source src="<%= @story.audio_url %>" type= "<%= @story.audio.content_type %>" >
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div class="text-center container">
+          <% if @story.previous_story %>
+            <!-- <a class="next" href="#pic2"><%= link_to raw("&#x25C0;"), story_path(@story.previous_story) %></a> | -->
+              <button type="button" class="btn btn-success"><%= link_to raw("&#x25C0;"), story_path(@story.previous_story) %></button>
+          <% end %>
+          <button type="button" class="btn btn-success"><%= link_to "Delete", story_path(@story), method: "delete", data: {confirm:"Are you sure?"} %></button>
+          <button type="button" class="btn btn-success"><%= link_to "Edit", edit_story_path(@story) %></button>
+          <% if @story.next_story %>
+            <!-- <a class="next" href="#pic2"><%= link_to "&#x25B6;".html_safe, story_path(@story.next_story)%></a> -->
+              <button type="button" class="btn btn-success"><%= link_to "&#x25B6;".html_safe, story_path(@story.next_story)%></button>
+          <% end %>
+            <button type="button" class="btn btn-success">Autor: <%= link_to @story.author.capitalize, the_same_author_story_path(@story) %></button>
+        </div>
       </div>
-    </main>
+    </div>
+      <main class="container col-lg-4">
+          <% @stories.each do |story| %>
+            <% if story.level == @story.level %>
+              <%= link_to story_path(story) do %>
+                <%= image_tag story.picture.url, class:"blue1 welcome"%>
+                <p></p>
+                <p>
+                  <button type="button" class="btn btn-info text-center"><%= story.title%></button>
+                </p>
+                <hr>
+              <% end %>
+            <% end %>
+          <% end %>
+      </main>
+    </div>
   </div>
 </div>

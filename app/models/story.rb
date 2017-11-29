@@ -11,8 +11,6 @@ class Story < ApplicationRecord
   validates :audio, presence: true
   validates :picture, presence: true
 
-  # validate :check_audio_content_type
-
   def next_story
     @story = Story.where("id > ?", self.id ).first
   end
