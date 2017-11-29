@@ -10,7 +10,7 @@
             <%= @story.rate %>
         </h2>
         <div class="text-center">
-          <%= image_tag @story.picture.url (:medium) %>
+          <%= image_tag @story.picture.url, class: "show" %>
         </div>
       </div>
       <p></p>
@@ -43,12 +43,10 @@
       <div class="row row-offcanvas row-offcanvas-right">
         <div class="col-md-10 sidebar-offcanvas" id="sidebar">
           <div class="list-group">
-            <div class="blue1 text-center">Podobne &#8628;</div>
-              <p></p>
             <% @stories.each do |story| %>
               <% if story.level == @story.level %>
                 <%= link_to story_path(story) do %>
-                  <%= image_tag story.picture.url(:thumb), class:"blue1"%>
+                  <%= image_tag story.picture.url, class:"blue1 welcome"%>
                   <p></p>
                   <p>
                     <button type="button" class="btn btn-info text-center"><%= story.title%></button>

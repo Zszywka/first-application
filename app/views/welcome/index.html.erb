@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Story</title>
-    
+
   </head>
 
   <body>
@@ -46,77 +46,26 @@
     </main><!--/.container-->
 
 
-    <div class="container">
-      <div class="row">
+    <!-- <div class="container">
+      <div class="row"> -->
         <div class="col-sm-4">
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <%= @story1.title.capitalize %>
-            </div>
-            <div class="panel-body img">
-              <%= link_to story_path(@story1) do %>
-                <%= image_tag @story1.picture.url(:small)%>
+              <% if @stories %>
+                <% @stories.each do |story| %>
+                <%= story.title.capitalize %>
+              </div>
+              <div class="panel-body img">
+                <%= link_to story_path(story) do %>
+                  <%= image_tag story.picture.url, class: "welcome shadow" %>
+                <% end %>
+              </div>
               <% end %>
-            </div>
+            <% end %>
           </div>
         </div>
-        <div class="col-sm-4">
-          <div class="panel panel-danger">
-            <div class="panel-heading"><%= @story2.title.capitalize %></div>
-            <div class="panel-body img">
-              <%= link_to story_path(@story2) do %>
-                <%= image_tag @story2.picture.url(:small)%>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="panel panel-success">
-            <div class="panel-heading"><%= @story3.title.capitalize %></div>
-            <div class="panel-body img">
-              <%= link_to story_path(@story3) do %>
-                <%= image_tag @story3.picture.url(:small)%>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><br>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="panel panel-primary">
-            <div class="panel-heading"><%= @story4.title.capitalize %></div>
-            <div class="panel-body img">
-              <%= link_to story_path(@story4) do %>
-                <%= image_tag @story4.picture.url(:small)%>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="panel panel-primary">
-            <div class="panel-heading"><%= @story5.title.capitalize %></div>
-            <div class="panel-body img">
-              <%= link_to story_path(@story5) do %>
-                <%= image_tag @story5.picture.url(:small)%>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="panel panel-primary">
-            <div class="panel-heading"><%= @story6.title.capitalize %></div>
-            <div class="panel-body img">
-              <%= link_to story_path(@story6) do %>
-                <%= image_tag @story6.picture.url(:small)%>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div><br><br>
+
 
     <footer class="container-fluid text-center">
 

@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20171128093413) do
     t.string "level", null: false
     t.integer "category_id"
     t.integer "rate", default: 0
-    t.string "picture"
-    t.string "audio"
+    t.oid "picture"
+    t.oid "audio"
     t.index ["category_id"], name: "index_stories_on_category_id"
   end
 

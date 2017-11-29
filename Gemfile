@@ -28,7 +28,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'carrierwave'
+gem 'carrierwave-postgresql'
 gem 'mini_magick'
+gem 'postgresql_lo_streamer'
 
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'jquery-rails'

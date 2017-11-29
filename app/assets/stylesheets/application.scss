@@ -17,11 +17,6 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
-html {
-  max-width: 100%;
-  height: auto;
-}
-
 .green {
     background-color: #4CAF50;
     color: white;
@@ -59,18 +54,15 @@ html {
 }
 
 .img {
-    border-radius: 8px;
-    // border: 10px solid #4CAF50;
-    border: 10px solid #FF8C00;
-    border-radius: 4px;
-    padding: 5px;
-    width: 270px;
+    // border-radius: 8px;
+    // // border: 10px solid #4CAF50;
+    // padding: 5px;
+    // width: 310px;
     box-shadow: 0 4px 8px 0;
-    zoom: 1;
 }
 
 .shadow {
-  box-shadow: 0 4px 8px 0
+  box-shadow: 0 20px 20px 5
 }
 
 .like {
@@ -89,7 +81,9 @@ body {
     background-image: image-url("intro.jpg");
     // background-image: url("img_tree.png");
     // background-position: right top;
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: 100%;
 }
 
 .row {
@@ -106,12 +100,20 @@ body {
   // color: #000000;
 }
 
+// widok w show stories
 .show {
-  margin-left: 200px;
+  margin-left: 70px;
+  width: 450px;
 }
 
 .table-hover .table-info:hover {
     opacity: 0.6;
+}
+
+// widok index welcome
+.welcome {
+    // height: 240px;
+    width: 300px;
 }
 
 // .picture {

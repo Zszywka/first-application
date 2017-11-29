@@ -24,7 +24,7 @@ class StoriesController < ApplicationController
       @stories = @stories.where("title ilike :text or author ilike :text or level ilike :text", text: "%#{@text}%" )
     end
 
-    # TODO to do fix 
+    # TODO to do fix
     if params[:level]
       @story = Story.which_level(params[:level])
     end
@@ -45,9 +45,15 @@ class StoriesController < ApplicationController
     end
   end
 
+#HACK o_unlink failed · Issue #27 · diogob/carrierwave-postgresql
+# blad generowany przez gema, usby go obejsc nalezy przechwici blad (info w notatkach)
   def destroy
     story = Story.find(params[:id])
-    story.destroy
+    begin
+      story.destroy
+    rescue PG::Error => e
+      raise if !e.message.include?("lo_unlink failed")
+    end
 
     redirect_to stories_path
   end
@@ -58,11 +64,23 @@ class StoriesController < ApplicationController
 
   def update
     @story = Story.find(params[:id])
-    if @story.update(params_story)
+
+    # HACK ned method `path' for 33366:Integer
+    saved = begin
+              @story.update(params_story)
+            rescue NoMethodError => e
+              if e.message.include?("undefined method `path' for")
+                true
+              else
+                false
+              end
+            end
+
+    if saved
       flash[:notice] = "The story was edited successfully"
       redirect_to @story
     else
-       "edit"
+      render "edit"
     end
   end
 

@@ -22,7 +22,7 @@
     <div>
         <td class="text-center table-dark margin:">
           <%= link_to story_path(story) do %>
-            <%= image_tag story.picture_url(:thumb) %>
+            <%= image_tag story.picture_url, style: "width: 200px;" %>
           <% end %>
         </td>
         <td class="text-center table-info"><strong><%= link_to story.title.capitalize, story_path(story) %></strong></td>

@@ -5,14 +5,13 @@ class Story < ApplicationRecord
   belongs_to :category
   # belongs_to :user
 
-
   validates :title, presence: true
   validates :author, presence: true
   validates :level, presence: true
   validates :audio, presence: true
   validates :picture, presence: true
 
-  validate :check_audio_content_type
+  # validate :check_audio_content_type
 
   def next_story
     @story = Story.where("id > ?", self.id ).first
@@ -27,6 +26,6 @@ class Story < ApplicationRecord
   end
 
   def check_audio_content_type
-    errors.add(:audio, "is invalid file type") if audio.content_type !~ /\Aaudio\//
+    errors.add(:audio, "is invalid file type") if audio_changed? && audio.content_type !~ /\Aaudio\//
   end
 end

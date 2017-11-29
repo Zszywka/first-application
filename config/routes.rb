@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount PostgresqlLoStreamer::Engine => "/story_picture"
+  mount PostgresqlLoStreamer::Engine => "/story_audio", as: "audio"
   # devise_for :users
   devise_for :users, skip: :registrations
 
