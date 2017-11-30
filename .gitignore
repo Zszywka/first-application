@@ -20,3 +20,6 @@
 
 /public/system/*
 !/public/system/.keep
+
+/config/cloudinary.yml
+/public/uploads

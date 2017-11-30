@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128093413) do
+ActiveRecord::Schema.define(version: 20171130135253) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20171128093413) do
     t.string "level", null: false
     t.integer "category_id"
     t.integer "rate", default: 0
-    t.oid "picture"
-    t.oid "audio"
+    t.string "picture"
+    t.string "audio"
     t.index ["category_id"], name: "index_stories_on_category_id"
   end
 
