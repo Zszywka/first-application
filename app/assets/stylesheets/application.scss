@@ -32,6 +32,14 @@
 .blue1{
     color: #1E90FF;
     box-shadow: 0 4px 8px 0;
+    // position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right: float;
+    // margin:auto;
+    width:70%;
+    height:300px;
 }
 
 .yellow {
@@ -72,13 +80,108 @@
   color: blue;
 }
 
+.category {
+  position: relative;
+  right: 60%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 90%;
+  margin: auto;
+  width: 90%;
+  height: 400px;
+}
+
+#sidebar {
+  left: 80%;
+}
+
 a {
   color: #111;
+}
+.bigger {
+  font-weight: 900;
+  color:  black;
+}
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: 0.3rem;
+}
+.col-lg-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%;
+    max-width: 50%;
+}
+
+.col-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 40%;
+    flex: 0 0 40%;
+    max-width: 50%;
+}
+.col-6-idea {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 60%;
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align: justify;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.center {
+  text-align: center;
+}
+
+.radius {
+  border-radius: 70px
+}
+
+[role=button] {
+  // background: rgba(48, 96, 144, 0.2);
+  margin: auto;
+  color: white;
+  max-width: 800px;
+  text-align: center;
+  padding: 10px;
+  border: -50px;
+}
+.zoom {
+  zoom: 150%;
+}
+.effect:hover img {
+transition: all 0.4s ease-in-out 0s;
+opacity: 0.7;
+-moz-transform: scale(1,2);
+-webkit-transform: scale(50%,50%);
+-o-transform: scale(2,2);
+-ms-transform: scale(2,2);
+transform: scale(2,2);
+}
+
+.link1 {
+  text-decoration: none;
+  zoom: 0.9;
+}
+[role=button]:hover {
+  background-color: red;
+  zoom: 150%;
+}
+
+.link1:hover {
+  text-decoration: none;
+  color: red;
+  zoom: 120%;
 }
 
 body {
     // background-image: url("intro.jpg");
-    // background-color: #FF8C00;
     background-image: image-url("intro.jpg");
     // background-image: url("img_tree.png");
     // background-position: right top;
@@ -96,14 +199,35 @@ body {
   font-weight: bold;
 }
 
+.row-idea {
+    margin-right: 0px;
+    margin-left: 0px;
+    // display: -webkit-box;
+    // display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: bold;
+    margin-bottom: 3rem;
+}
 // widok w show stories
 .show {
-  margin-left: 70px;
+  // margin-left: 70px;
+  width: 90px;
+}
+
+.show_show {
+  margin-right: 80px;
   width: 450px;
 }
 
 .table-hover .table-info:hover {
     opacity: 0.6;
+}
+
+.dropdown-menu.show {
+    display: block;
+    color: green;
+    width: auto;
 }
 
 // widok index welcome
@@ -116,6 +240,7 @@ body {
   flex-wrap:wrap;
   padding:5px;
 }
+
 .picture_welcome {
   float:left;
   width:30%;
@@ -125,6 +250,7 @@ body {
   margin:10px;
   padding:5px;
 }
+
 .table-responsive {
   display: block;
   width: 90%;
@@ -135,6 +261,7 @@ body {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
+
 .background_table {
   background-color: transparent;
 }
