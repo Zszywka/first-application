@@ -15,16 +15,21 @@
 </main>
 <div>
   <div>
-    <% if @stories %>
-      <% @stories.each do |story| %>
+    <%# if @stories %>
+      <%# @stories.each do |story| %>
         <%#= story.title.capitalize %>
-        <%= link_to story_path(story) do %>
-          <%= image_tag story.picture.url, class: "welcome picture_welcome" %>
-        <% end %>
-      <% end %>
-    <% end %>
+        <%#= link_to story_path(story) do %>
+          <%#= image_tag story.picture.url, class: "welcome picture_welcome" %>
+        <%# end %>
+      <%# end %>
+    <%# end %>
+    <% if @stories %>
+      <%= render "/stories/last_stories" %>
+    <% end%>
   </div>
 </div>
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

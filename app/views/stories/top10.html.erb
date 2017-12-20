@@ -1,15 +1,16 @@
 <%= render "nav"%>
-<h2 class="center"> top 10 </h2>
+<h2 class="center bigger link1"> Top dziesięciu najlepszych bajek </h2>
 
-<table class="table table-sm">
-  <tr class="table-success">
-    <th class="text-center">Tytuł bajki</th>
-    <th class="text-center">Wasza ocena</th>
-  </tr>
-    <% @stories.each do |story| %>
-  <tr>
-    <td class="text-center"><%= link_to story.title, story_path(story) %></td>
-    <td class="text-center"><%= story.rate%></td>
-  </tr>
+<ol class="center" style="margin:50px">
+  <% @stories.each do |story| %>
+  <div class=" bigger link1" style="display: block">
+    <li class="text-justify" style="padding:10px; margin-bottom:10px">
+    <%= link_to story_path(story) do %>
+      <span class="picture-top"><%= image_tag story.picture.url, class: "picture_top"%></span>
     <% end %>
-</table>
+    <span class="link1 big-text"><%= link_to story.title, story_path(story) %></span>
+     Ocena: <span id="star"><%= story.rate %> &#9734;</span>
+    </li>
+  </div>
+  <% end %>
+</ol>

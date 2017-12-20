@@ -22,13 +22,11 @@
     color: white;
     box-shadow: 0 4px 8px 0;
 }
-
 .blue {
     background-color: #1E90FF;
     color: white;
     box-shadow: 0 4px 8px 0;
 }
-
 .blue1{
     color: #1E90FF;
     box-shadow: 0 4px 8px 0;
@@ -41,26 +39,22 @@
     width:70%;
     height:300px;
 }
-
 .yellow {
     background-color: #FFD700;
     color: black;
     box-shadow: 0 4px 8px 0;
 }
-
 .red {
     background-color: #FF1493;
     color: white;
     box-shadow: 5px 4px 8px 5px black;
 }
-
 .button_green {
   background-color: #4CAF50;
   color: white;
   font-size: 24px;
   box-shadow: 0 4px 8px 0;
 }
-
 .img {
     // border-radius: 8px;
     // // border: 10px solid #4CAF50;
@@ -68,18 +62,15 @@
     // width: 310px;
     box-shadow: 0 4px 8px 0;
 }
-
 .shadow {
   box-shadow: 0 20px 20px 5
 }
-
 .like {
   background-image:image-url('thumb.png');
   background-repeat:no-repeat;
   font-size: 150%;
   color: blue;
 }
-
 .category {
   position: relative;
   right: 60%;
@@ -92,11 +83,9 @@
   width: 90%;
   height: 400px;
 }
-
 #sidebar {
   left: 80%;
 }
-
 a {
   color: #111;
 }
@@ -116,7 +105,6 @@ a {
     flex: 0 0 40%;
     max-width: 50%;
 }
-
 .col-6 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 40%;
@@ -130,19 +118,15 @@ a {
     max-width: 50%;
     text-align: justify;
 }
-
 .text-justify {
   text-align: justify;
 }
-
 .center {
   text-align: center;
 }
-
 .radius {
   border-radius: 70px
 }
-
 [role=button] {
   // background: rgba(48, 96, 144, 0.2);
   margin: auto;
@@ -152,7 +136,7 @@ a {
   padding: 10px;
   border: -50px;
 }
-.zoom {
+.zoom:hover {
   zoom: 150%;
 }
 .effect:hover img {
@@ -164,22 +148,24 @@ opacity: 0.7;
 -ms-transform: scale(2,2);
 transform: scale(2,2);
 }
-
 .link1 {
   text-decoration: none;
   zoom: 0.9;
+  padding:10px;
+}
+.big-text {
+  font-size: 20px;
 }
 [role=button]:hover {
   background-color: red;
   zoom: 150%;
 }
-
 .link1:hover {
   text-decoration: none;
-  color: red;
+  background-color: red;
+  border-radius: 10px;
   zoom: 120%;
 }
-
 body {
     // background-image: url("intro.jpg");
     background-image: image-url("intro.jpg");
@@ -189,7 +175,9 @@ body {
     background-attachment: fixed;
     background-size: 100%;
 }
-
+.picture-top:hover {
+  zoom: 40%;
+}
 .row {
   margin-right: 100px;
   margin-left: 200px;
@@ -198,7 +186,6 @@ body {
   display: flex;
   font-weight: bold;
 }
-
 .row-idea {
     margin-right: 0px;
     margin-left: 0px;
@@ -214,7 +201,6 @@ body {
   // margin-left: 70px;
   width: 90px;
 }
-
 .show_show {
   margin-right: 80px;
   width: 450px;
@@ -223,34 +209,57 @@ body {
 .table-hover .table-info:hover {
     opacity: 0.6;
 }
-
 .dropdown-menu.show {
     display: block;
     color: green;
     width: auto;
 }
-
 // widok index welcome
 .welcome {
     // height: 240px;
     width: 300px;
 }
-
 .picture_parent {
   flex-wrap:wrap;
   padding:5px;
 }
-
 .picture_welcome {
-  float:left;
-  width:30%;
-  margin-bottom:30px;
-  flex-basis:50%;
-  flex-shrink:1;
-  margin:10px;
-  padding:5px;
+  float: left;
+  width: 30%;
+  margin-bottom: 30px;
+  flex-basis: 50%;
+  flex-shrink: 1;
+  margin: 10px;
+  padding: 5px;
 }
-
+.picture_top {
+  width: 30%;
+  margin-bottom: 30px;
+  flex-basis: 50%;
+  flex-shrink: 1;
+  margin: 10px;
+  padding: 40px;
+  // display: block;
+}
+li {
+    // display: list-item;
+    // text-align: -webkit-match-parent;
+}
+#star {
+  font-weight: 900;
+  color:yellow;
+  // border: 1px solid yellow;
+  border-radius: 3%;
+  font-size: 25px;
+  background: red;
+  padding: 5px;
+}
+#star:hover {
+  font-size: 128px;
+  color: yellow;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  zoom:30%;
+}
 .table-responsive {
   display: block;
   width: 90%;
